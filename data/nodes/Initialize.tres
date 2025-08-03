@@ -34,3 +34,4 @@ color = "PanelContainerDanger"
 input_ports = Array[ExtResource("2_tx2ek")]([ExtResource("3_jy7yp"), SubResource("Resource_wj02i"), SubResource("Resource_dnle7")])
 output_ports = Array[ExtResource("2_tx2ek")]([ExtResource("4_c3ixp"), ExtResource("3_ix0pl")])
 help_msg = "Create a new variable with an initialized name and value. Reports success status value (0 or 1). Event input is optional but necessary for event output."
+disabled = true

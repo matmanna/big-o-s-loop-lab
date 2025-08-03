@@ -4,13 +4,16 @@ extends Control
 @export var highlight_color := Color.YELLOW
 @export var tick_interval := 0.6 # seconds between ticks
 @export var tick_count = 0 
+@onready var level_options :OptionButton =  get_node('../../../../../VBoxContainer/HBoxContainer/OptionButton')
 
 var current_nodes: Array= []
 var next_nodes: Array= []
 var is_running := false
-
 func _ready():
-	pass
+	level_options.clear()
+	for lev in LevelDatabase.levels:
+		print('level1', lev)
+		level_options.add_item(lev)
 	
 var staticValues = {}
 var staticPortValues = {}
@@ -34,6 +37,10 @@ func get_port_def_by_name(name, ports):
 	return ports[portIndex]
 		
 func getPassThroughIn(node):
+	var variables = {
+		"facing_goal": Level.player.facing_goal(),
+		"facing_wall": Level.player.facing_wall()
+	}
 	var passThroughIn = {}
 	for inp in node.input_port_connections:
 		print('inp', inp)
@@ -46,6 +53,7 @@ func getPassThroughIn(node):
 			#print(inpr.name, inp, inp == inpr.name)
 			#if (inpr.name == inp):
 				#portIndex = i
+		print('inphi', portDef.type)
 		if !portDef:
 			return false;
 		if (portDef.type == "value"):
@@ -54,8 +62,8 @@ func getPassThroughIn(node):
 				print('node is loopy', node.input_port_connections[inp])
 				var success = false
 				for conn1 in  node.input_port_connections[inp]:
-					if conn1.node.get_instance_id() and staticPortValues.has(conn1.node.get_instance_id()):
-						print('statport',  inp, staticPortValues[conn1.node.get_instance_id()][conn1.port])
+					if conn1.node.get_instance_id() and conn1.node.get_instance_id() in staticPortValues:
+						print('statport',  inp,  staticPortValues[conn1.node.get_instance_id()], staticPortValues[conn1.node.get_instance_id()])
 						passThroughIn[inp] = staticPortValues[conn1.node.get_instance_id()][conn1.port]
 						success = true
 				if success:
@@ -71,6 +79,7 @@ func getPassThroughIn(node):
 				
 			passThroughIn[inp] = staticValues[node.input_connections[inp][0].get_instance_id()]
 	print('passthrough', passThroughIn)
+	passThroughIn.variables = variables
 	return passThroughIn;
 
 func process_static(node):
@@ -79,11 +88,14 @@ func process_static(node):
 		var  valueVal = node.get_node("%Value").text
 		if valueVal.is_valid_float():
 			staticValues[node.get_instance_id()] = valueVal.to_float()
+			staticPortValues[node.get_instance_id()] = {"":  valueVal.to_float()}
 		elif valueVal.is_valid_int():
 			staticValues[node.get_instance_id()] = valueVal.to_int()
+			staticPortValues[node.get_instance_id()] = {"":  valueVal.to_float()}
 		else:
 			staticValues[node.get_instance_id()] = valueVal
-		print('statVal', staticValues)
+			staticPortValues[node.get_instance_id()] = {"":  valueVal.to_float()}
+		print('statVal', staticValues, staticPortValues)
 		var portDef = get_port_def_by_name(node.output_connections.keys()[0], node.definition.output_ports)
 		if !portDef:
 				return false;
@@ -126,7 +138,7 @@ func process_static(node):
 	else:
 		print('hi')
 		var passThroughIn = getPassThroughIn(node)
-		print(passThroughIn)
+		print('hiya', passThroughIn, !passThroughIn)
 		if (!passThroughIn):
 			return;
 		print('actually execute')
@@ -139,10 +151,11 @@ func process_static(node):
 			if evalResult.has(outp.name):
 				print('has output')
 				relevant_out = outp.name
-		if !relevant_out:
+		if typeof(relevant_out) != TYPE_STRING:
 			return
 		staticValues[node.get_instance_id()] = evalResult[relevant_out]
-		print('statVal', staticValues, evalResult)
+		staticPortValues[node.get_instance_id()] = evalResult
+		print('statVal2', staticValues, evalResult)
 		var portDef = get_port_def_by_name(node.output_connections.keys()[0], node.definition.output_ports)
 			#for i in range(node.definition.input_ports.size()):
 				#var inpr = node.definition.input_ports[i]
@@ -150,6 +163,7 @@ func process_static(node):
 				#print(inpr.name, inp, inp == inpr.name)
 				#if (inpr.name == inp):
 					#portIndex = i
+		print('nonloop def', portDef)
 		if !portDef:
 			return false;
 		for out in node.output_connections[node.output_connections.keys()[0]]:
@@ -249,16 +263,17 @@ func _process_tick(inside_loop=false, loop_nodes:Array=[]):
 		staticPortValues[node.get_instance_id()] = nodeReturn
 		node.unhighlight()
 
-		var out_conns = node.output_connections["output"].duplicate()
-		print('not a loop', out_conns)
+		var out_conns = node.output_connections["output"].duplicate() if node.output_connections.has("output") else []
+		print('not a loop', node.definition.id, node.output_connections.keys())
 		
-		if (out_conns.size() ==0):
-			if (inside_loop):
-				var portDef = get_port_def_by_name(node.output_connections.keys()[0], node.definition.output_ports)
+		if (node.output_connections.keys().size() > 1):
+			if (inside_loop || true):
+				var portDef = get_port_def_by_name(node.output_connections.keys()[1], node.definition.output_ports)
+				print('not a loop def', portDef.type)
 				if portDef:
 					print(node.input_connections)
-					for out in node.output_connections[node.output_connections.keys()[0]]:
-						print('getting portdef', out)
+					for out in node.output_connections[node.output_connections.keys()[1]]:
+						print('getting portdef', out, get_port_def_by_name("input", out.definition.input_ports))
 						
 						print('def', portDef)
 						#for i in range(node.definition.input_ports.size()):
@@ -266,7 +281,7 @@ func _process_tick(inside_loop=false, loop_nodes:Array=[]):
 							#
 							#print(inpr.name, inp, inp == inpr.name)
 							#if (inpr.name == inp):
-								#portIndex = i
+								#portIndex = iss
 						
 						if (portDef.type == "value" and !get_port_def_by_name("input", out.definition.input_ports)): 
 							process_static(out)
@@ -287,13 +302,18 @@ func _process_tick(inside_loop=false, loop_nodes:Array=[]):
 				staticPortValues[node.get_instance_id()] = nodeReturn
 				await get_tree().create_timer(tick_interval).timeout
 				node.unhighlight()
+		elif out_conns.size() == 0 && node.definition.id == 'if':
+			for i in nodeReturn.keys():
+				if nodeReturn[i]:
+					out_conns.append_array(node.output_connections[i].duplicate() if node.output_connections.has(i) else [])
+
 					
+			#out_conns.append_array()
 		if inside_loop:
 			new_loop_nodes.append_array(out_conns)
 		else:
 			next_nodes.append_array(out_conns)
 
-	# Wait a bit, then tick again
 	await get_tree().create_timer(tick_interval).timeout
 	print('loop ', inside_loop, new_loop_nodes)
 	_process_tick(inside_loop, new_loop_nodes)
@@ -321,6 +341,8 @@ func _process(_delta):
 	var player_details=  debug_tabs.get_node('Player/PlayerDetails')
 	var tickcount = puzzle_result.get_node('TickCount/Value')
 	tickcount.text = str(tick_count)
+	var ticklimit = puzzle_result.get_node('TickLimit/Value')
+	ticklimit.text = str(LevelDatabase.get_level(Level.current_level_name).tick_limit)
 	var status =  puzzle_result.get_node('Status/Panel')
 	status.get_node('Value').text = Debug.get_run_status().text
 	status.theme_type_variation = Debug.get_run_status().color
@@ -337,5 +359,6 @@ func _process(_delta):
 	var facing_goal = player_details.get_node('FacingGoal/Panel') 
 	facing_goal.get_node('Value').text = "TRUE" if Level.player.facing_goal()  else "FALSE"
 	facing_goal.theme_type_variation = "PanelContainerSuccess" if Level.player.facing_goal()  else  "PanelContainerDanger"
-	var level_name = get_node('../../../../../VBoxContainer/HBoxContainer/LevelName')
-	level_name.text = "Level: " + Level.current_level_name
+	#var level_name = get_node('../../../../../VBoxContainer/HBoxContainer/LevelName')
+	#level_name.text = "Level: " + Level.current_level_name
+	#level_options.selected = LevelDatabase.levels.keys().find(Level.current_level_name)

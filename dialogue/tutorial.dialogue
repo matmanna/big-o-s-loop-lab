@@ -1,0 +1,73 @@
+~ start
+
+The Boss?: [#happy, #surprised] Welcome to the lab, recruit! It's your first day, so you probably don't know how we do things here. (Press any button)
+The Boss?: My name is Big O. I could tell you about the company vision, but instead i'll just sum it up in one word-- efficiency.
+Big O: I think that's enough chit-chat for today. Let's get onto the tour, shall we?
+- Uhh... OK => from_scratch
+- I'll figure it out
+	Big O: Ha! Skipping the tutorial in a jam game? Well, good luck i guess! If you need me, i'll be in the top-right "Help" menu.
+=> END
+
+~ from_scratch
+Big O: The environment here might scare you, but don't worry, if you're efficient, you should keep your job for at least a few months. That is, before corporate decides to replace you with an LLM! 
+Big O: Anyway, the lab is  split into four main parts: the canvas, the palette, the viewport, and the debugger.  Have you used a game engine or programming IDE before?
+- For sure!
+	Big O: OK, then this should feel somewhat familiar to you. I'll tell you about it anyway.
+- Was that a job requirement?
+	Big O: You're hilarious, you know that? We don't mention it on the application to avoid scaring people away.
+Big O: The first and most important panel is the  canvas. This is where you arrange logic nodes to control the level. 
+Big O: In the canvas, you drag nodes around and connect (by clicking) the little boxes on the bottom of one node to those on the top of another.
+Big O: These connection points are called ports and there's two main kinds. Red ones transmit data (aka information) and grey ones control event flows.
+Big O: You might notice there's already two nodes in the canvas. One is an action and the other an event. Events are automatically triggered while actions must be connected through grey event ports.
+Big O: How do we create these nodes though? Well, with the palette! You can't see it right now but trust me, it's there, and it will be critical to adding necessary building blocks.
+Big O: What will you be accomplishing working here? What I do know is that the viewport is important! That's where you see the result of your logic (and objects like the player, walls, and the goal).
+Big O: We're going to save the debugger for later, but for now, just know it's a place to monitor the state of your current program.
+Big O: I almost forgot the most important part: running your logic! You can use the start/stop buttons above the canvas to control your program's state. If something goes wrong, that stop button might come in handy!
+Big O: For now, that's all. Try to get the player to that yellow key (keep it simple, in this level you're only allowed to use one node!) 
+Big O: If you need me, I'll be chilling in the top-right "Help" menu. Bye!
+=> END
+
+~ firstloop
+Big O: This level's a bit harder. Instead of a fixed goal, the goal's position will be randomly assigned when you run the program. Use the value of the facing goal and the while loop!
+=> END
+
+~ tutorial_start
+Construction Manager: So as I said, welcome to the company. For your training, we'll be building a couple houses so you can learn how we do things.
+Construction Manager: The city has some very particular requirements for this neightborhood, so it's a bit different than what you're probably expecting. I'l make sure to show you the ropes though!
+=> END
+
+~ tut2
+Construction Manager: You might notice you now have a piano keyboard. Now when I say the city is making us do some wacky stuff for this project, I wasn't kidding!
+Construction Manager: Anyway, you see those green blobs floating above the keyboard?
+- Yeah I see them...
+	Construction Manager: Great. well those are indicators which tell you which keys to press. 
+- What the heck are they?
+	Construction Manager: I know, crazy Right? Anyway, those tell you which keys to press. 
+Construction Manager: If it's shaped like a rounded squre, it's a natural note and if it's a circle, it's a sharp. Got that?
+Construction Manager: Anyway, when I stop yapping, that thing's gonna start falling, and when it hovers over the little space drawn on one of the keys, you need to press the key corresponding to it.
+Construction Manager: You think you can do that?
+- Yup!
+	Construction Manager: Glad to hear your enthusiasm, now get started!
+- Uh...
+	Construction Manager: Don't worry too much. Apparently they based the system off of a videogame so hopefully it'll be pretty intuitive!
+=> END
+
+~ first_notes_over
+Construction Manager: You get the idea. Get ready because it'll really ramp up now!
+=> END
+
+~ fine1
+Construction Manager: So how did it go?
+- Pretty Okay
+	Construction Manager: Glad to hear it! That's all you have to do for training. Now get to building!
+- Not well
+	Construction Manager: Don't worry about it too much. You might get better with more practice, or you might not!
+	
+Construction Manager: The houses don't have to be perfect. The city's only building them for a bunch of rich music snobs anyway. Also, this game is very unfinished/unpolished still but will hopefully get better!
+Construction Manager: I just broke the fourth wall to tel you that and that that if you want to do the training again, feel free to do so. Otherwise, good luck!
+#Construction Manager: Would you like to do the training again or continue to the level select menu?
+#- Move on!
+#	Construction Manager: Good luck!
+#- From the top!
+	
+=> END

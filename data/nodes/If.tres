@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="NodeDefinition" load_steps=9 format=3 uid="uid://bvp65vbfvd7ku"]
+
+[ext_resource type="Texture2D" uid="uid://6h0j5wi0qq0c" path="res://assets/ui_pack/Grey/check_square_grey_checkmark.svg" id="1_7w01y"]
+[ext_resource type="Resource" uid="uid://cb4m80ybbke0u" path="res://data/nodes/behaviors/if.tres" id="1_nnaii"]
+[ext_resource type="Script" path="res://resources/PortData.gd" id="2_rdbx0"]
+[ext_resource type="Resource" uid="uid://d241mmoi8nss6" path="res://data/ports/TriggerInput.tres" id="3_1rag0"]
+[ext_resource type="Script" path="res://resources/NodeDefinition.gd" id="3_mxbus"]
+[ext_resource type="Resource" uid="uid://dv0v1a66a1w0u" path="res://data/ports/Value.tres" id="4_mip8w"]
+
+[sub_resource type="Resource" id="Resource_f26as"]
+script = ExtResource("2_rdbx0")
+name = "if"
+type = "flow"
+color = "PanelContainer"
+max_connections = 100
+
+[sub_resource type="Resource" id="Resource_xbem0"]
+script = ExtResource("2_rdbx0")
+name = "else"
+type = "flow"
+color = "PanelContainer"
+max_connections = 100
+
+[resource]
+script = ExtResource("3_mxbus")
+id = "if"
+display_name = "If"
+category = "✅ Conditions"
+iteratorDefault = 0
+iteratorAmount = ""
+icon = ExtResource("1_7w01y")
+condition = ""
+color = "PanelContainerSuccess"
+input_ports = Array[ExtResource("2_rdbx0")]([ExtResource("3_1rag0"), ExtResource("4_mip8w")])
+output_ports = Array[ExtResource("2_rdbx0")]([SubResource("Resource_f26as"), SubResource("Resource_xbem0")])
+behavior = ExtResource("1_nnaii")
+help_msg = "Conditionally triggers if or else event flows based on input is 1 or 0"
+disabled = false

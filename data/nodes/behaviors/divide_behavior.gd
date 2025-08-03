@@ -1,7 +1,7 @@
 extends NodeBehavior
 
 func check_raisable(a, b):
-	if a && b && (typeof(a) == TYPE_INT || typeof(a) == TYPE_FLOAT) && (typeof(b) == TYPE_INT || typeof(b) == TYPE_FLOAT):
+	if a != null && b != null && (typeof(a) == TYPE_INT || typeof(a) == TYPE_FLOAT) && (typeof(b) == TYPE_INT || typeof(b) == TYPE_FLOAT):
 		return true
 	else:
 		return false

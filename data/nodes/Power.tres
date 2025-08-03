@@ -40,3 +40,4 @@ input_ports = Array[ExtResource("2_8w868")]([SubResource("Resource_1digm"), SubR
 output_ports = Array[ExtResource("2_8w868")]([SubResource("Resource_lj4qa")])
 behavior = ExtResource("1_kmfe3")
 help_msg = "Returns the power value of the two input values (base and exponent)"
+disabled = false

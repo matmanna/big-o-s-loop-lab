@@ -3,7 +3,7 @@ extends PanelContainer
 var nodeCategories = [
 	{"name": "📡 Events", "icon": "res://assets/ui_pack/Extra/icon_play_dark.svg"},
 	{"name": "🔁 Loops", "icon": "res://assets/ui_pack/Extra/icon_repeat_dark.svg"},
-	{"name": "✅ Conditions", "icon":"res://assets/ui_pack/Grey/icon_outline_checkmark.svg"},
+	{"name": '✅ Conditions', "icon":"res://assets/ui_pack/Grey/icon_outline_checkmark.svg"},
 	{"name": "⭐ Actions", "icon": "res://assets/ui_pack/Grey/star.svg"},
 	{"name": '🚩 Data', "icon":"res://assets/ui_pack/Grey/icon_outline_checkmark.svg"},
 	{"name": '🧮 Math', "icon": ""}
@@ -21,7 +21,7 @@ func _ready() -> void:
 		grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		scroll.name = cat.name
 		for node in NodeDatabase.definitions.keys():
-			if NodeDatabase.definitions[node].category == cat.name:
+			if NodeDatabase.definitions[node].category == cat.name and !NodeDatabase.definitions[node].disabled:
 				var nodeContainer = HBoxContainer.new()
 				nodeContainer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 				var nodePanel = PanelContainer.new()

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://blpturrtv280c"]
+
+[ext_resource type="Script" path="res://data/nodes/behaviors/or_behavior.gd" id="1_i4x81"]
+
+[resource]
+resource_name = "or"
+script = ExtResource("1_i4x81")

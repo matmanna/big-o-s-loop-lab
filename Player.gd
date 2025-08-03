@@ -4,6 +4,18 @@ const SPEED = 300.0
 var direction = Vector2.UP
 
 func _physics_process(_delta: float) -> void:
+	if direction == Vector2.RIGHT:
+		$WallRaycast.rotation_degrees = 90
+		$GoalRaycast.rotation_degrees = 90
+	elif direction == Vector2.LEFT:
+		$WallRaycast.rotation_degrees = 270
+		$GoalRaycast.rotation_degrees = 270
+	elif direction == Vector2.DOWN:
+		$WallRaycast.rotation_degrees = 180
+		$GoalRaycast.rotation_degrees = 180
+	elif direction == Vector2.UP:
+		$WallRaycast.rotation_degrees = 0
+		$GoalRaycast.rotation_degrees = 0
 	pass
 
 func walk(x):

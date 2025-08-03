@@ -7,7 +7,7 @@ func check_int_or_float(x):
 		return false
 
 func evaluate(inputs: Dictionary) -> Dictionary:
-	print('player walk try')
+	print('player walk try', inputs["x"])
 	if "x" in inputs && check_int_or_float(inputs["x"]):
 		return {"succeeded": Level.player.walk(inputs["x"])}
 	else:

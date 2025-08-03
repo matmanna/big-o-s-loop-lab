@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="NodeDefinition" load_steps=9 format=3 uid="uid://bm7v2vj84xngt"]
+
+[ext_resource type="Resource" uid="uid://7iuvwja1h0jm" path="res://data/nodes/behaviors/repeat_n.tres" id="1_u6pdn"]
+[ext_resource type="Texture2D" uid="uid://dm5v6dehg1cyn" path="res://assets/ui_pack/Extra/icon_repeat_light.svg" id="2_rola8"]
+[ext_resource type="Script" path="res://resources/PortData.gd" id="3_vb840"]
+[ext_resource type="Resource" uid="uid://d241mmoi8nss6" path="res://data/ports/TriggerInput.tres" id="4_pir67"]
+[ext_resource type="Resource" uid="uid://cwb6snmdhlhdr" path="res://data/ports/TriggerOutput.tres" id="5_djs2h"]
+[ext_resource type="Script" path="res://resources/NodeDefinition.gd" id="6_kts8o"]
+
+[sub_resource type="Resource" id="Resource_gvywv"]
+script = ExtResource("3_vb840")
+name = "condition"
+type = "value"
+color = "PanelContainerDanger"
+max_connections = 1
+
+[sub_resource type="Resource" id="Resource_atjxp"]
+script = ExtResource("3_vb840")
+name = "loop"
+type = "loop"
+color = "PanelContainer"
+max_connections = 100
+
+[resource]
+script = ExtResource("6_kts8o")
+id = "while"
+display_name = "While"
+category = "🔁 Loops"
+iteratorDefault = 0
+iteratorAmount = ""
+icon = ExtResource("2_rola8")
+condition = ""
+color = "PanelContainerPrimary"
+input_ports = Array[ExtResource("3_vb840")]([ExtResource("4_pir67"), SubResource("Resource_gvywv")])
+output_ports = Array[ExtResource("3_vb840")]([SubResource("Resource_atjxp"), ExtResource("5_djs2h")])
+behavior = ExtResource("1_u6pdn")
+help_msg = "Repeats  logic connected to first gray output according to first red input (N). After, runs second gray output."

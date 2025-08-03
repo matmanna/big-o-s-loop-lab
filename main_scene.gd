@@ -8,6 +8,7 @@ extends Control
 @export var logic_node_scene := preload("res://logic_node.tscn")
 
 var is_connecting: bool = false
+var current_dialogue = "start"
 var start_node: LogicNode = null
 var start_port_name: String = ""
 var start_is_output: bool = false
@@ -20,13 +21,43 @@ var is_panning := false
 var mouse_inside := false
 var last_mouse_pos := Vector2.ZERO
 @onready var viewport: SubViewport = get_node('../../HSplitContainer/VBoxContainer/VSplitContainer/Viewport/VBoxContainer/AspectRatioContainer/SubViewportContainer/SubViewport')
-
+var old_level: int = -1
+var global_fallback = null
 
 func _ready():
+	if not Engine.has_singleton("Globals"):
+		var fallback = preload("res://autoload/Debug.gd").new()
+		fallback.name = "Debug"
+		get_tree().root.add_child(fallback)
+		var fallback1 = preload("res://autoload/Level.gd").new()
+		fallback1.name = "Level"
+		get_tree().root.add_child(fallback1)
+		var fallback2 = preload("res://autoload/NodeDatabase.gd").new()
+		fallback2.name = "NodeDatabase"
+		get_tree().root.add_child(fallback2)
+		var fallback3 = preload("res://autoload/LevelDatabase.gd").new()
+		fallback3.name = "LevelDatabase"
+		get_tree().root.add_child(fallback3)
+		#var fallback4 = preload("res://autoload/Level.gd").new()
+		#fallback1.name = "Level"
+		#get_tree().root.add_child(fallback1)
+		print("⚠️ Injected fallback Globals")
+	#if Engine.has_singleton("NodeDatabase"):
+		#global_fallback = NodeDatabase
+	#else:
+		#print("Using fallback")
+		#global_fallback = preload("res://autoload/NodeDatabase.gd").new()
 	Level.viewport = viewport
+	old_level = get_node('../VBoxContainer/HBoxContainer/OptionButton').selected
+
 	set_process_unhandled_input(true)
 	Level.reset()
+	get_node('../../Timer').start()
 
+
+func _on_dialogue_manager_dialogue_ended(resource: DialogueResource):
+	if current_dialogue == "start":
+		pass
 
 func _process(_delta):
 	if is_connecting and start_node:
@@ -205,25 +236,43 @@ func _on_button_pressed() -> void:
 
 func _on_reset_level_pressed() -> void:
 	Level.reset()
+	NodeDatabase.reset()
 	Debug.reset()
 	Debug.run_succeeded = null
 
-func export_canvas_to_resource() -> GraphData:
-	var data := GraphData.new()
+var pending_level_idx = -1
+
+func _on_level_option_button_item_selected(index: int) -> void:
+	pending_level_idx = index
+	get_node('../../AcceptDialog').show()
+
+func _on_accept_dialog_confirmed() -> void:
+	if pending_level_idx > -1:
+		Level.load_level(LevelDatabase.levels.keys()[pending_level_idx])
+		pending_level_idx = -1
+
+
+func start_dialogue():
+	print(Level.current_level_name)
+	if (Level.current_level_name == "Starting From Scratch"):
+		DialogueManager.dialogue_ended.connect(_on_dialogue_manager_dialogue_ended)
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/tutorial.dialogue"), "start")
+	elif (Level.current_level_name == "First Loops"):
+		DialogueManager.dialogue_ended.connect(_on_dialogue_manager_dialogue_ended)
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/tutorial.dialogue"), "firstloop")
 	
-	for node in node_canvas.get_children():
-		if node is LogicNode:
-			data.nodes.append(node)
 
-	for wire in wire_layer.get_children():
-		if wire is WireLine2D:
-			data.connections.append(wire)
 
-	return data
+func _on_timer_timeout() -> void:
+	start_dialogue()
 
-func save_graph_to_file(path: String):
-	var data := export_canvas_to_resource()
-	ResourceSaver.save(data, path)
-	
-func _on_save_button_pressed() -> void:
-	save_graph_to_file("user://my_canvas.tres")
+
+func _on_tutorial_button_pressed() -> void:
+	start_dialogue()
+
+
+func _on_accept_dialog_canceled() -> void:
+	get_node('../VBoxContainer/HBoxContainer/OptionButton').selected = old_level
+	old_level = -1
+	get_node('../../Timer').start()
+	pending_level_idx = -1

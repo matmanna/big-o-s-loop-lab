@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://data/nodes/behaviors/divide_behavior.gd" id="1_prhxf"]
 
 [resource]
+resource_name = "divide"
 script = ExtResource("1_prhxf")
