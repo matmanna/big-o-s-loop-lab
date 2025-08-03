@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="NodeDefinition" load_steps=9 format=3 uid="uid://7gxkffcysf4q"]
+
+[ext_resource type="Resource" uid="uid://7iuvwja1h0jm" path="res://data/nodes/behaviors/repeat_n.tres" id="1_1h7ox"]
+[ext_resource type="Texture2D" uid="uid://dm5v6dehg1cyn" path="res://assets/ui_pack/Extra/icon_repeat_light.svg" id="1_myjuo"]
+[ext_resource type="Script" path="res://resources/PortData.gd" id="1_x1tb1"]
+[ext_resource type="Resource" uid="uid://d241mmoi8nss6" path="res://data/ports/TriggerInput.tres" id="2_ksj4h"]
+[ext_resource type="Script" path="res://resources/NodeDefinition.gd" id="2_uk6tw"]
+[ext_resource type="Resource" uid="uid://cwb6snmdhlhdr" path="res://data/ports/TriggerOutput.tres" id="4_eehgt"]
+
+[sub_resource type="Resource" id="Resource_gvywv"]
+script = ExtResource("1_x1tb1")
+name = "n"
+type = "value"
+color = "PanelContainerDanger"
+max_connections = 1
+
+[sub_resource type="Resource" id="Resource_atjxp"]
+script = ExtResource("1_x1tb1")
+name = "loop"
+type = "loop"
+color = "PanelContainer"
+max_connections = 100
+
+[resource]
+script = ExtResource("2_uk6tw")
+id = "repeat-n"
+display_name = "Repeat N"
+category = "🔁 Loops"
+iteratorDefault = 0
+iteratorAmount = "n"
+icon = ExtResource("1_myjuo")
+condition = ""
+color = "PanelContainerPrimary"
+input_ports = Array[ExtResource("1_x1tb1")]([ExtResource("2_ksj4h"), SubResource("Resource_gvywv")])
+output_ports = Array[ExtResource("1_x1tb1")]([SubResource("Resource_atjxp"), ExtResource("4_eehgt")])
+behavior = ExtResource("1_1h7ox")
+help_msg = "Repeats  logic connected to first gray output according to first red input (N). After, runs second gray output."

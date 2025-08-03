@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dnldnhr262dbm"]
+
+[ext_resource type="Script" path="res://data/nodes/behaviors/modulo_behavior.gd" id="1_2px3k"]
+
+[resource]
+script = ExtResource("1_2px3k")

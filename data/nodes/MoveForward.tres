@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="NodeDefinition" load_steps=3 format=3 uid="uid://b8s4owytvfods"]
+
+[ext_resource type="Script" path="res://resources/PortData.gd" id="1_25ewh"]
+[ext_resource type="Script" path="res://resources/NodeDefinition.gd" id="2_h2oft"]
+
+[resource]
+script = ExtResource("2_h2oft")
+id = "walk"
+display_name = ""
+category = ""
+iteratorDefault = 0
+iteratorAmount = ""
+condition = ""
+color = ""
+input_ports = Array[ExtResource("1_25ewh")]([])
+output_ports = Array[ExtResource("1_25ewh")]([])
+help_msg = "Player walks forward x number of steps"

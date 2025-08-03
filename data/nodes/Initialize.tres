@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="NodeDefinition" load_steps=9 format=3 uid="uid://cy6ip7xmge20s"]
+
+[ext_resource type="Texture2D" uid="uid://bge4e6eq4lpn" path="res://assets/ui_pack/Grey/slide_hangle.svg" id="1_c8hy1"]
+[ext_resource type="Script" path="res://resources/PortData.gd" id="2_tx2ek"]
+[ext_resource type="Resource" uid="uid://dv0v1a66a1w0u" path="res://data/ports/Value.tres" id="3_ix0pl"]
+[ext_resource type="Resource" uid="uid://d241mmoi8nss6" path="res://data/ports/TriggerInput.tres" id="3_jy7yp"]
+[ext_resource type="Resource" uid="uid://cwb6snmdhlhdr" path="res://data/ports/TriggerOutput.tres" id="4_c3ixp"]
+[ext_resource type="Script" path="res://resources/NodeDefinition.gd" id="4_jlgpv"]
+
+[sub_resource type="Resource" id="Resource_wj02i"]
+script = ExtResource("2_tx2ek")
+name = "name"
+type = "value"
+color = "PanelContainerDanger"
+max_connections = 1
+
+[sub_resource type="Resource" id="Resource_dnle7"]
+script = ExtResource("2_tx2ek")
+name = "value"
+type = "value"
+color = "PanelContainerDanger"
+max_connections = 1
+
+[resource]
+script = ExtResource("4_jlgpv")
+id = "initialize"
+display_name = "Initialize"
+category = "🚩 Data"
+iteratorDefault = 0
+iteratorAmount = ""
+icon = ExtResource("1_c8hy1")
+condition = ""
+color = "PanelContainerDanger"
+input_ports = Array[ExtResource("2_tx2ek")]([ExtResource("3_jy7yp"), SubResource("Resource_wj02i"), SubResource("Resource_dnle7")])
+output_ports = Array[ExtResource("2_tx2ek")]([ExtResource("4_c3ixp"), ExtResource("3_ix0pl")])
+help_msg = "Create a new variable with an initialized name and value. Reports success status value (0 or 1). Event input is optional but necessary for event output."

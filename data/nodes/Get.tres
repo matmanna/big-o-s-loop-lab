@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="NodeDefinition" load_steps=5 format=3 uid="uid://c8p1vxnbfdq2k"]
+
+[ext_resource type="Texture2D" uid="uid://bge4e6eq4lpn" path="res://assets/ui_pack/Grey/slide_hangle.svg" id="1_5yakb"]
+[ext_resource type="Script" path="res://resources/PortData.gd" id="2_mw040"]
+[ext_resource type="Script" path="res://resources/NodeDefinition.gd" id="3_txw5c"]
+
+[sub_resource type="Resource" id="Resource_1odga"]
+script = ExtResource("2_mw040")
+name = ""
+type = "flow"
+color = "PanelContainer"
+max_connections = 1
+
+[resource]
+script = ExtResource("3_txw5c")
+id = "initialize"
+display_name = ""
+category = "🚩 Data"
+interatorDefault = 0
+interatorAmount = 0
+icon = ExtResource("1_5yakb")
+condition = ""
+color = "PanelContainerDanger"
+input_ports = Array[ExtResource("2_mw040")]([SubResource("Resource_1odga")])
+output_ports = Array[ExtResource("2_mw040")]([])
+help_msg = "Create a new variable with an initialized value. Reports live name and value to other nodes."

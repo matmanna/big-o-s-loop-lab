@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn0fsrvxnc1l3"]
+
+[ext_resource type="Script" path="res://wire.gd" id="1_xvhht"]
+
+[node name="Control" type="Line2D"]
+script = ExtResource("1_xvhht")

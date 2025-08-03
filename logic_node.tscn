@@ -1,0 +1,98 @@
+[gd_scene load_steps=4 format=3 uid="uid://f8xf2b3kim1u"]
+
+[ext_resource type="Script" path="res://logic_node.gd" id="1_x1mo8"]
+[ext_resource type="Texture2D" uid="uid://yfespnupr0e5" path="res://assets/ui_pack/Blue/star.svg" id="2_nu1vv"]
+[ext_resource type="Texture2D" uid="uid://5qvnlmp077mi" path="res://assets/ui_pack/Grey/icon_cross.svg" id="3_xhwne"]
+
+[node name="LogicNode" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 72.0
+mouse_filter = 1
+mouse_default_cursor_shape = 13
+script = ExtResource("1_x1mo8")
+
+[node name="InputPortList" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.1
+anchor_right = 0.5
+grow_horizontal = 2
+theme_override_constants/separation = 50
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_type_variation = &"PanelContainerPrimary"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Icon" type="TextureRect" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_nu1vv")
+expand_mode = 2
+
+[node name="Content" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+text = "node"
+
+[node name="Name" type="TextEdit" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+text = "="
+
+[node name="Value" type="TextEdit" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OutputPortList" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 75
+
+[node name="TextureButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.05
+anchor_right = 1.05
+offset_left = -20.0
+offset_top = -10.0
+offset_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("3_xhwne")
+texture_pressed = ExtResource("3_xhwne")
+texture_hover = ExtResource("3_xhwne")
+texture_disabled = ExtResource("3_xhwne")
+texture_focused = ExtResource("3_xhwne")
+ignore_texture_size = true
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

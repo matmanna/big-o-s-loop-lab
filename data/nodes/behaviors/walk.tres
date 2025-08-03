@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dmp5yuwdt5rt8"]
+
+[ext_resource type="Script" path="res://data/nodes/behaviors/walk_behavior.gd" id="1_jdj20"]
+
+[resource]
+resource_name = "walk"
+script = ExtResource("1_jdj20")

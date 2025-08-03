@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://ox1v6co4r3xr"]
+
+[ext_resource type="PackedScene" uid="uid://bvwl11s2p0hd" path="res://addons/maaacks_game_template/base/scenes/menus/options_menu/master_options_menu.tscn" id="1_sva08"]
+[ext_resource type="Script" path="res://scenes/menus/options_menu/master_options_menu.gd" id="2_d12ot"]
+[ext_resource type="PackedScene" uid="uid://uiim62md25ue" path="res://scenes/menus/options_menu/input/input_extras_menu.tscn" id="4_616fx"]
+[ext_resource type="PackedScene" uid="uid://b2avofp1qdaau" path="res://scenes/menus/options_menu/audio/audio_options_menu.tscn" id="5_mibpm"]
+[ext_resource type="PackedScene" uid="uid://bmt0s333lmpph" path="res://scenes/menus/options_menu/video/video_options_menu_with_extras.tscn" id="6_vtthg"]
+[ext_resource type="PackedScene" uid="uid://bnso16i48vi4v" path="res://scenes/menus/options_menu/game/game_options_menu.tscn" id="7_4eb1e"]
+
+[node name="MasterOptionsMenu" instance=ExtResource("1_sva08")]
+script = ExtResource("2_d12ot")
+
+[node name="TabContainer" parent="." index="0"]
+current_tab = 0
+
+[node name="Inputs" parent="TabContainer" index="1" instance=ExtResource("4_616fx")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Audio" parent="TabContainer" index="2" instance=ExtResource("5_mibpm")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Video" parent="TabContainer" index="3" instance=ExtResource("6_vtthg")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Game" parent="TabContainer" index="4" instance=ExtResource("7_4eb1e")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3

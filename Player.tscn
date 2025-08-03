@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvj0tps7hb0lc"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_4e7rb"]
+[ext_resource type="Texture2D" uid="uid://dsypl6gg7p2qg" path="res://assets/colored_packed.png" id="2_q7oca"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmou7"]
+size = Vector2(49.75, 42.8079)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(-64, 256)
+scale = Vector2(4, 4)
+script = ExtResource("1_4e7rb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1.25, -1)
+scale = Vector2(0.84375, 0.875)
+texture = ExtResource("2_q7oca")
+hframes = 49
+vframes = 22
+frame = 365
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.15001)
+scale = Vector2(0.207305, 0.299011)
+shape = SubResource("RectangleShape2D_cmou7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.25, 0.25)
+zoom = Vector2(0.5, 0.5)
+
+[node name="WallRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(0, -15.9)
+hit_from_inside = true
+
+[node name="GoalRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(0, -15.9)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false

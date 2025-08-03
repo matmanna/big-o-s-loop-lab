@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b6aenfq6k2kky"]
+
+[ext_resource type="Script" path="res://data/nodes/behaviors/print_behavior.gd" id="1_eqtof"]
+
+[resource]
+script = ExtResource("1_eqtof")

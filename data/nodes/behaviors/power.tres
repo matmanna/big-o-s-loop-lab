@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dw2yr5sklt03n"]
+
+[ext_resource type="Script" path="res://data/nodes/behaviors/power_behavior.gd" id="1_jtuow"]
+
+[resource]
+script = ExtResource("1_jtuow")

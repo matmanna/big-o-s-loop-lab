@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="NodeDefinition" load_steps=5 format=3 uid="uid://f16404lid3nu"]
+
+[ext_resource type="Texture2D" uid="uid://byd0sdc3hmmn2" path="res://assets/ui_pack/Grey/arrow_basic_e.svg" id="1_6plhy"]
+[ext_resource type="Script" path="res://resources/PortData.gd" id="1_m702l"]
+[ext_resource type="Resource" uid="uid://cwb6snmdhlhdr" path="res://data/ports/TriggerOutput.tres" id="2_aq0v5"]
+[ext_resource type="Script" path="res://resources/NodeDefinition.gd" id="3_t0j3e"]
+
+[resource]
+script = ExtResource("3_t0j3e")
+id = "on-start"
+display_name = "On Start"
+category = "📡 Events"
+interatorDefault = 0
+interatorAmount = 0
+icon = ExtResource("1_6plhy")
+condition = ""
+color = "PanelContainer"
+input_ports = Array[ExtResource("1_m702l")]([])
+output_ports = Array[ExtResource("1_m702l")]([ExtResource("2_aq0v5")])
