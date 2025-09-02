@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dmchmhxnh6bsw"]
 
-[ext_resource type="PackedScene" path="res://scenes/credits/scrolling_credits.tscn" id="1_ubrl0"]
-[ext_resource type="Script" path="res://scenes/end_credits/end_credits.gd" id="2_pb3mk"]
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="3_rsxhh"]
-[ext_resource type="Script" path="res://addons/maaacks_game_template/base/scripts/capture_focus.gd" id="4_rurdq"]
+[ext_resource type="PackedScene" uid="uid://cniiyqbdqjq2s" path="res://scenes/credits/scrolling_credits.tscn" id="1_ubrl0"]
+[ext_resource type="Script" uid="uid://dq2cf8i2s8a4j" path="res://scenes/end_credits/end_credits.gd" id="2_pb3mk"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="3_rsxhh"]
+[ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/scripts/capture_focus.gd" id="4_rurdq"]
 
 [node name="EndCredits" instance=ExtResource("1_ubrl0")]
 script = ExtResource("2_pb3mk")

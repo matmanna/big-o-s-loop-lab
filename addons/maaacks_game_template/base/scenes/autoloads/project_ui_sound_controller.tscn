@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc37235kj4384"]
+[gd_scene load_steps=5 format=3 uid="uid://cc37235kj4384"]
 
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_game_template/base/scripts/ui_sound_controller.gd" id="1_dmagn"]
+[ext_resource type="AudioStream" uid="uid://rupme3gln8yu" path="res://assets/audio/sfx/kenny_ui/ogg/click1.ogg" id="2_d5qud"]
+[ext_resource type="AudioStream" uid="uid://ced1dvacxwaeu" path="res://assets/audio/sfx/kenny_ui/ogg/mouseclick1.ogg" id="3_7f8wo"]
+[ext_resource type="AudioStream" uid="uid://t5x2o001rg8u" path="res://assets/audio/sfx/kenny_ui/ogg/mouserelease1.ogg" id="4_nvwb3"]
 
 [node name="ProjectUISoundController" type="Node"]
 script = ExtResource("1_dmagn")
+button_pressed = ExtResource("2_d5qud")
+slider_drag_started = ExtResource("3_7f8wo")
+slider_drag_ended = ExtResource("4_nvwb3")
+line_focused = ExtResource("3_7f8wo")
+line_text_submitted = ExtResource("4_nvwb3")

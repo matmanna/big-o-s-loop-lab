@@ -22,7 +22,10 @@ func _process(delta: float) -> void:
 	pass
 	
 func reset():
-	var level = LevelDatabase.get_level(current_level_name)
+	var level = get_node('../LevelDatabase').get_level(current_level_name)
+	if (!level.scene):
+		print('oopsy daisy')
+		return;
 	var level_scene: PackedScene= level.scene
 	var vars = {}
 	target_reached = null

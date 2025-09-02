@@ -25,33 +25,11 @@ var old_level: int = -1
 var global_fallback = null
 
 func _ready():
-	if not Engine.has_singleton("Globals"):
-		var fallback = preload("res://autoload/Debug.gd").new()
-		fallback.name = "Debug"
-		get_tree().root.add_child(fallback)
-		var fallback1 = preload("res://autoload/Level.gd").new()
-		fallback1.name = "Level"
-		get_tree().root.add_child(fallback1)
-		var fallback2 = preload("res://autoload/NodeDatabase.gd").new()
-		fallback2.name = "NodeDatabase"
-		get_tree().root.add_child(fallback2)
-		var fallback3 = preload("res://autoload/LevelDatabase.gd").new()
-		fallback3.name = "LevelDatabase"
-		get_tree().root.add_child(fallback3)
-		#var fallback4 = preload("res://autoload/Level.gd").new()
-		#fallback1.name = "Level"
-		#get_tree().root.add_child(fallback1)
-		print("⚠️ Injected fallback Globals")
-	#if Engine.has_singleton("NodeDatabase"):
-		#global_fallback = NodeDatabase
-	#else:
-		#print("Using fallback")
-		#global_fallback = preload("res://autoload/NodeDatabase.gd").new()
-	Level.viewport = viewport
+	get_node('../../Level').viewport = viewport
 	old_level = get_node('../VBoxContainer/HBoxContainer/OptionButton').selected
 
 	set_process_unhandled_input(true)
-	Level.reset()
+	get_node('../../Level').reset()
 	get_node('../../Timer').start()
 
 
@@ -235,31 +213,32 @@ func _on_button_pressed() -> void:
 	node_canvas.position = Vector2(-1186.5, -1299) * node_canvas.scale
 
 func _on_reset_level_pressed() -> void:
-	Level.reset()
-	NodeDatabase.reset()
-	Debug.reset()
-	Debug.run_succeeded = null
+	get_node('../../Level').reset()
+	get_node('../../NodeDatabase').reset()
+	get_node('../../LevelDatabase').reset()
+	get_node('../../Debug').run_succeeded = null
 
 var pending_level_idx = -1
 
 func _on_level_option_button_item_selected(index: int) -> void:
 	pending_level_idx = index
-	get_node('../../AcceptDialog').show()
+	get_node('../AcceptDialog').show()
 
 func _on_accept_dialog_confirmed() -> void:
+	print('switching level', pending_level_idx)
 	if pending_level_idx > -1:
-		Level.load_level(LevelDatabase.levels.keys()[pending_level_idx])
+		get_node('../../Level').load_level(get_node('../../LevelDatabase').levels.keys()[pending_level_idx])
 		pending_level_idx = -1
 
 
 func start_dialogue():
-	print(Level.current_level_name)
-	if (Level.current_level_name == "Starting From Scratch"):
-		DialogueManager.dialogue_ended.connect(_on_dialogue_manager_dialogue_ended)
-		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/tutorial.dialogue"), "start")
-	elif (Level.current_level_name == "First Loops"):
-		DialogueManager.dialogue_ended.connect(_on_dialogue_manager_dialogue_ended)
-		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/tutorial.dialogue"), "firstloop")
+	print(get_node('../../Level').current_level_name)
+	#if (Level.current_level_name == "Starting From Scratch"):
+		#DialogueManager.dialogue_ended.connect(_on_dialogue_manager_dialogue_ended)
+		#DialogueManager.show_example_dialogue_balloon(load("res://dialogue/tutorial.dialogue"), "start")
+	#elif (Level.current_level_name == "First Loops"):
+		#DialogueManager.dialogue_ended.connect(_on_dialogue_manager_dialogue_ended)
+		#DialogueManager.show_example_dialogue_balloon(load("res://dialogue/tutorial.dialogue"), "firstloop")
 	
 
 

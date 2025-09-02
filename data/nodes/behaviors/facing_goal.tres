@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://cxtlvxwe83vsi"]
 
-[ext_resource type="Script" path="res://data/nodes/behaviors/facing_goal_behavior.gd" id="1_muom1"]
+[ext_resource type="Script" uid="uid://dkr16sm8r6ep3" path="res://data/nodes/behaviors/facing_goal_behavior.gd" id="1_muom1"]
 
 [resource]
 resource_name = "facing_goal"

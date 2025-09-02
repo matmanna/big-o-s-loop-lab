@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PortData" load_steps=2 format=3 uid="uid://cwb6snmdhlhdr"]
 
-[ext_resource type="Script" path="res://resources/PortData.gd" id="1_hriq5"]
+[ext_resource type="Script" uid="uid://c5wwhd12cawre" path="res://resources/PortData.gd" id="1_hriq5"]
 
 [resource]
 script = ExtResource("1_hriq5")

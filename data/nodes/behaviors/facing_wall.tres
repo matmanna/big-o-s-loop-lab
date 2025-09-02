@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://da3ecd74ygpjk"]
 
-[ext_resource type="Script" path="res://data/nodes/behaviors/facing_wall_behavior.gd" id="1_euuqy"]
+[ext_resource type="Script" uid="uid://xpbby7s5veld" path="res://data/nodes/behaviors/facing_wall_behavior.gd" id="1_euuqy"]
 
 [resource]
 resource_name = "facing_wall"

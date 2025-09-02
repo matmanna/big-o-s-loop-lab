@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="NodeDefinition" load_steps=9 format=3 uid="uid://cy6ip7xmge20s"]
 
 [ext_resource type="Texture2D" uid="uid://bge4e6eq4lpn" path="res://assets/ui_pack/Grey/slide_hangle.svg" id="1_c8hy1"]
-[ext_resource type="Script" path="res://resources/PortData.gd" id="2_tx2ek"]
+[ext_resource type="Script" uid="uid://c5wwhd12cawre" path="res://resources/PortData.gd" id="2_tx2ek"]
 [ext_resource type="Resource" uid="uid://dv0v1a66a1w0u" path="res://data/ports/Value.tres" id="3_ix0pl"]
 [ext_resource type="Resource" uid="uid://d241mmoi8nss6" path="res://data/ports/TriggerInput.tres" id="3_jy7yp"]
 [ext_resource type="Resource" uid="uid://cwb6snmdhlhdr" path="res://data/ports/TriggerOutput.tres" id="4_c3ixp"]
-[ext_resource type="Script" path="res://resources/NodeDefinition.gd" id="4_jlgpv"]
+[ext_resource type="Script" uid="uid://b8ytbdta5mje1" path="res://resources/NodeDefinition.gd" id="4_jlgpv"]
 
 [sub_resource type="Resource" id="Resource_wj02i"]
 script = ExtResource("2_tx2ek")

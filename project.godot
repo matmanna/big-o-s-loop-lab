@@ -10,24 +10,21 @@ config_version=5
 
 [application]
 
-config/name="looplabstudio"
+config/name="Big O's Loop Lab [DEMO]"
+config/description="A DEMO puzzle game about computational thinking."
 config/version="0.0.1"
-run/main_scene="uid://bopfakfvpoaot"
+run/main_scene="uid://dbx4m5nfu06vh"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
-NodeDatabase="res://autoload/NodeDatabase.gd"
-LevelDatabase="*res://autoload/LevelDatabase.gd"
-Debug="res://autoload/Debug.gd"
-Level="*res://autoload/Level.gd"
-AppConfig="res://addons/maaacks_game_template/base/scenes/autoloads/app_config.tscn"
-SceneLoader="res://addons/maaacks_game_template/base/scenes/autoloads/scene_loader.tscn"
-ProjectMusicController="res://addons/maaacks_game_template/base/scenes/autoloads/project_music_controller.tscn"
-ProjectUISoundController="res://addons/maaacks_game_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
-DialogueManager="res://addons/dialogue_manager/dialogue_manager.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+AppConfig="*res://addons/maaacks_game_template/base/scenes/autoloads/app_config.tscn"
+SceneLoader="*res://addons/maaacks_game_template/base/scenes/autoloads/scene_loader.tscn"
+ProjectMusicController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_music_controller.tscn"
+ProjectUISoundController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
 
 [dialogue_manager]
 
@@ -40,7 +37,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/maaacks_game_template/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg", "res://addons/maaacks_game_template/plugin.cfg")
 
 [gui]
 

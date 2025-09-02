@@ -1,0 +1,509 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3m5s7q347c8w"]
+
+[ext_resource type="Script" uid="uid://ci7get6c5hyet" path="res://main_scene.gd" id="1_1nomu"]
+[ext_resource type="Script" uid="uid://cf8pod7cdcyva" path="res://wire.gd" id="2_nyrco"]
+[ext_resource type="Script" uid="uid://6dua3icehbbd" path="res://NodeEvaluator.gd" id="3_pnvm7"]
+[ext_resource type="PackedScene" uid="uid://f8xf2b3kim1u" path="res://logic_node.tscn" id="4_wd1si"]
+[ext_resource type="Script" uid="uid://5rqryxehutrq" path="res://NodePalette.gd" id="5_dohe0"]
+
+[sub_resource type="FontVariation" id="FontVariation_qm25n"]
+variation_embolden = 0.3
+
+[sub_resource type="LabelSettings" id="LabelSettings_nyjpb"]
+font = SubResource("FontVariation_qm25n")
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HSplitContainer" type="HSplitContainer"]
+z_index = -4096
+offset_left = 12.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+
+[node name="Studio" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.4
+mouse_filter = 0
+script = ExtResource("1_1nomu")
+
+[node name="Control Panel" type="HBoxContainer" parent="Studio"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Studio/Control Panel"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Big O's Loop Lab"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Studio/Control Panel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Studio/Control Panel/HBoxContainer"]
+layout_mode = 2
+text = "Tick Interval"
+
+[node name="HSlider" type="HSlider" parent="Studio/Control Panel/HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 3.0
+step = 0.1
+value = 0.6
+allow_greater = true
+
+[node name="StartButton" type="Button" parent="Studio/Control Panel/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ButtonSuccess"
+text = "RUN"
+
+[node name="StopButton" type="Button" parent="Studio/Control Panel/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ButtonDanger"
+text = "STOP"
+
+[node name="ClearButton" type="Button" parent="Studio/Control Panel/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"Button"
+text = "CLEAR"
+
+[node name="SaveButton" type="Button" parent="Studio/Control Panel/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"ButtonPrimary"
+text = "SAVE"
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Studio"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CanvasPanel" type="PanelContainer" parent="Studio/VSplitContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="Studio/VSplitContainer/CanvasPanel"]
+z_index = 1000
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Canvas"
+
+[node name="Canvas" type="Control" parent="Studio/VSplitContainer/CanvasPanel"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Wires" type="Control" parent="Studio/VSplitContainer/CanvasPanel/Canvas"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WireLayer" type="Control" parent="Studio/VSplitContainer/CanvasPanel/Canvas/Wires"]
+unique_name_in_owner = true
+z_index = 20
+layout_mode = 2
+anchors_preset = 0
+offset_left = -13.0
+offset_top = -35.0
+offset_right = 551.0
+offset_bottom = 365.0
+mouse_filter = 1
+
+[node name="PreviewLine" type="Line2D" parent="Studio/VSplitContainer/CanvasPanel/Canvas/Wires"]
+unique_name_in_owner = true
+z_index = 100
+position = Vector2(-15, -32)
+script = ExtResource("2_nyrco")
+preview = true
+
+[node name="NodeCanvas" type="Control" parent="Studio/VSplitContainer/CanvasPanel/Canvas" node_paths=PackedStringArray("node_canvas")]
+unique_name_in_owner = true
+z_index = 50
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1500.0
+offset_top = -1500.0
+offset_right = 1500.0
+offset_bottom = 1500.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("3_pnvm7")
+node_canvas = NodePath(".")
+
+[node name="LogicNode2" parent="Studio/VSplitContainer/CanvasPanel/Canvas/NodeCanvas" instance=ExtResource("4_wd1si")]
+offset_left = 1348.5
+offset_top = 1424.0
+offset_right = 1548.5
+offset_bottom = 1496.0
+node_id = "on-start"
+
+[node name="LogicNode" parent="Studio/VSplitContainer/CanvasPanel/Canvas/NodeCanvas" instance=ExtResource("4_wd1si")]
+offset_left = 1454.5
+offset_top = 1530.0
+offset_right = 1654.5
+offset_bottom = 1602.0
+node_id = "walk"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Studio/VSplitContainer/CanvasPanel"]
+z_index = 1000
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 0
+
+[node name="Control" type="Control" parent="Studio/VSplitContainer/CanvasPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="HelpButton" type="Button" parent="Studio/VSplitContainer/CanvasPanel/HBoxContainer/Control"]
+z_index = 4096
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_right = 16.0
+offset_bottom = 15.5
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+tooltip_text = "Zoom at pointer: Scroll
+Pan: Center click + Drag"
+text = "?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Studio/VSplitContainer/CanvasPanel/HBoxContainer"]
+layout_mode = 2
+
+[node name="ZoomOption" type="OptionButton" parent="Studio/VSplitContainer/CanvasPanel/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+z_index = 1000
+layout_mode = 2
+selected = 2
+allow_reselect = true
+item_count = 5
+popup/item_0/text = "33%"
+popup/item_0/id = 0
+popup/item_1/text = "50%"
+popup/item_1/id = 1
+popup/item_2/text = "100%"
+popup/item_2/id = 2
+popup/item_3/text = "125%"
+popup/item_3/id = 3
+popup/item_4/text = "150%"
+popup/item_4/id = 4
+
+[node name="ZoomIn" type="Button" parent="Studio/VSplitContainer/CanvasPanel/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+z_index = 1000
+layout_mode = 2
+text = "+"
+
+[node name="ZoomOut" type="Button" parent="Studio/VSplitContainer/CanvasPanel/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-"
+
+[node name="Button" type="Button" parent="Studio/VSplitContainer/CanvasPanel/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Recenter canvas"
+text = "o"
+
+[node name="Palette" type="PanelContainer" parent="Studio/VSplitContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("5_dohe0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Studio/VSplitContainer/Palette"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Studio/VSplitContainer/Palette/VBoxContainer"]
+layout_mode = 2
+text = "Palette"
+
+[node name="PaletteTabs" type="TabContainer" parent="Studio/VSplitContainer/Palette/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+tabs_position = 1
+all_tabs_in_front = true
+drag_to_rearrange_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="Studio/VSplitContainer/Palette/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LevelName" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Level: "
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ResetLevel" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="TutorialButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Help"
+
+[node name="VSplitContainer" type="VSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Viewport" type="PanelContainer" parent="VBoxContainer/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VSplitContainer/Viewport"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/Viewport/VBoxContainer"]
+layout_mode = 2
+text = "Viewport"
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer/VSplitContainer/Viewport/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+ratio = 1.777
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer/VSplitContainer/Viewport/VBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/VSplitContainer/Viewport/VBoxContainer/AspectRatioContainer/SubViewportContainer"]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(453, 254)
+render_target_update_mode = 4
+
+[node name="Debugger" type="PanelContainer" parent="VBoxContainer/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VSplitContainer/Debugger"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer"]
+layout_mode = 2
+text = "Debugger"
+
+[node name="DebugTabs" type="TabContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+drag_to_rearrange_enabled = true
+
+[node name="Puzzle" type="ScrollContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="PuzzleResult" type="VBoxContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LevelStatus" type="HBoxContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult/LevelStatus"]
+layout_mode = 2
+text = "Level Status: "
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult/LevelStatus"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerWarning"
+
+[node name="Value" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult/LevelStatus/Panel"]
+layout_mode = 2
+text = "N/A"
+
+[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult"]
+layout_mode = 2
+text = "=====Breakdown====="
+label_settings = SubResource("LabelSettings_nyjpb")
+
+[node name="Status" type="HBoxContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult/Status"]
+layout_mode = 2
+text = "Run Status: "
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult/Status"]
+layout_mode = 2
+
+[node name="Value" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult/Status/Panel"]
+layout_mode = 2
+text = "N/A"
+
+[node name="Completion" type="HBoxContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult/Completion"]
+layout_mode = 2
+text = "Solution Status:"
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult/Completion"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerWarning"
+
+[node name="Value" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult/Completion/Panel"]
+layout_mode = 2
+text = "N/A"
+
+[node name="TickCount" type="HBoxContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult/TickCount"]
+layout_mode = 2
+text = "Total Tick Count:"
+
+[node name="Value" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult/TickCount"]
+layout_mode = 2
+
+[node name="TickLimit" type="HBoxContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult/TickLimit"]
+layout_mode = 2
+text = "Tick Limit"
+
+[node name="Value" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult/TickLimit"]
+layout_mode = 2
+
+[node name="TickStatus" type="HBoxContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult/TickStatus"]
+layout_mode = 2
+text = "Tick Limit Status: "
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult/TickStatus"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerWarning"
+
+[node name="Value" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Puzzle/PuzzleResult/TickStatus/Panel"]
+layout_mode = 2
+text = "N/A"
+
+[node name="Logs" type="ScrollContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="LogsBox" type="VBoxContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Logs"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Player" type="ScrollContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="PlayerDetails" type="VBoxContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Player"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Position" type="HBoxContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Player/PlayerDetails"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Player/PlayerDetails/Position"]
+layout_mode = 2
+text = "Player Position:"
+
+[node name="Value" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Player/PlayerDetails/Position"]
+layout_mode = 2
+text = "N/A"
+
+[node name="Direction" type="HBoxContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Player/PlayerDetails"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Player/PlayerDetails/Direction"]
+layout_mode = 2
+text = "Player Direction:"
+
+[node name="Value" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Player/PlayerDetails/Direction"]
+layout_mode = 2
+text = "N/A"
+
+[node name="FacingWall" type="HBoxContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Player/PlayerDetails"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Player/PlayerDetails/FacingWall"]
+layout_mode = 2
+text = "Facing Wall:"
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Player/PlayerDetails/FacingWall"]
+layout_mode = 2
+
+[node name="Value" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Player/PlayerDetails/FacingWall/Panel"]
+layout_mode = 2
+text = "N/A"
+
+[node name="FacingGoal" type="HBoxContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Player/PlayerDetails"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Player/PlayerDetails/FacingGoal"]
+layout_mode = 2
+text = "Facing Goal:"
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Player/PlayerDetails/FacingGoal"]
+layout_mode = 2
+
+[node name="Value" type="Label" parent="VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs/Player/PlayerDetails/FacingGoal/Panel"]
+layout_mode = 2
+text = "N/A"
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+auto_translate_mode = 1
+dialog_text = "Confirm Level Switch? Your current code and puzzle status will be lost."
+
+[connection signal="gui_input" from="Studio" to="Studio" method="_on_gui_input"]
+[connection signal="value_changed" from="Studio/Control Panel/HBoxContainer/HSlider" to="Studio/VSplitContainer/CanvasPanel/Canvas/NodeCanvas" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Studio/Control Panel/HBoxContainer/StartButton" to="Studio/VSplitContainer/CanvasPanel/Canvas/NodeCanvas" method="start_evaluation"]
+[connection signal="pressed" from="Studio/Control Panel/HBoxContainer/StopButton" to="Studio/VSplitContainer/CanvasPanel/Canvas/NodeCanvas" method="stop_evaluation"]
+[connection signal="pressed" from="Studio/Control Panel/HBoxContainer/ClearButton" to="Studio/VSplitContainer/CanvasPanel/Canvas/NodeCanvas" method="_on_clear_button_pressed"]
+[connection signal="pressed" from="Studio/Control Panel/HBoxContainer/SaveButton" to="Studio" method="_on_save_button_pressed"]
+[connection signal="mouse_entered" from="Studio/VSplitContainer/CanvasPanel" to="Studio" method="_on_canvas_mouse_entered"]
+[connection signal="mouse_exited" from="Studio/VSplitContainer/CanvasPanel" to="Studio" method="_on_canvas_mouse_exited"]
+[connection signal="gui_input" from="Studio/VSplitContainer/CanvasPanel/Canvas" to="Studio" method="_on_canvas_gui_input"]
+[connection signal="item_selected" from="Studio/VSplitContainer/CanvasPanel/HBoxContainer/HBoxContainer/ZoomOption" to="Studio" method="_on_option_button_item_selected"]
+[connection signal="pressed" from="Studio/VSplitContainer/CanvasPanel/HBoxContainer/HBoxContainer/ZoomIn" to="Studio" method="_on_zoom_in_pressed"]
+[connection signal="pressed" from="Studio/VSplitContainer/CanvasPanel/HBoxContainer/HBoxContainer/ZoomOut" to="Studio" method="_on_zoom_out_pressed"]
+[connection signal="pressed" from="Studio/VSplitContainer/CanvasPanel/HBoxContainer/HBoxContainer/Button" to="Studio" method="_on_button_pressed"]
+[connection signal="tab_clicked" from="Studio/VSplitContainer/Palette/VBoxContainer/PaletteTabs" to="Studio/VSplitContainer/Palette" method="_on_tab_container_tab_clicked"]
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/OptionButton" to="Studio" method="_on_level_option_button_item_selected"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ResetLevel" to="Studio" method="_on_reset_level_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/TutorialButton" to="Studio" method="_on_tutorial_button_pressed"]
+[connection signal="canceled" from="AcceptDialog" to="Studio" method="_on_accept_dialog_canceled"]
+[connection signal="confirmed" from="AcceptDialog" to="Studio" method="_on_accept_dialog_confirmed"]

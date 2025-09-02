@@ -2,8 +2,8 @@
 
 [ext_resource type="Resource" uid="uid://dmp5yuwdt5rt8" path="res://data/nodes/behaviors/walk.tres" id="1_biv16"]
 [ext_resource type="Texture2D" uid="uid://drhohi4oppkyi" path="res://assets/ui_pack/Grey/star.svg" id="2_e0up8"]
-[ext_resource type="Script" path="res://resources/PortData.gd" id="2_g7s0k"]
-[ext_resource type="Script" path="res://resources/NodeDefinition.gd" id="3_2wy7o"]
+[ext_resource type="Script" uid="uid://c5wwhd12cawre" path="res://resources/PortData.gd" id="2_g7s0k"]
+[ext_resource type="Script" uid="uid://b8ytbdta5mje1" path="res://resources/NodeDefinition.gd" id="3_2wy7o"]
 [ext_resource type="Resource" uid="uid://d241mmoi8nss6" path="res://data/ports/TriggerInput.tres" id="3_08e3i"]
 [ext_resource type="Resource" uid="uid://cwb6snmdhlhdr" path="res://data/ports/TriggerOutput.tres" id="4_t7qix"]
 
@@ -35,3 +35,4 @@ input_ports = Array[ExtResource("2_g7s0k")]([ExtResource("3_08e3i"), SubResource
 output_ports = Array[ExtResource("2_g7s0k")]([ExtResource("4_t7qix"), SubResource("Resource_gvg1c")])
 behavior = ExtResource("1_biv16")
 help_msg = "Moves player character forward x tiles, returning success value (1 or 0)."
+disabled = false

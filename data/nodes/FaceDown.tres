@@ -2,10 +2,10 @@
 
 [ext_resource type="Resource" uid="uid://daq084bg6mw8y" path="res://data/nodes/behaviors/face_down.tres" id="1_u6nd2"]
 [ext_resource type="Texture2D" uid="uid://drhohi4oppkyi" path="res://assets/ui_pack/Grey/star.svg" id="2_ql6dk"]
-[ext_resource type="Script" path="res://resources/PortData.gd" id="3_67fan"]
+[ext_resource type="Script" uid="uid://c5wwhd12cawre" path="res://resources/PortData.gd" id="3_67fan"]
 [ext_resource type="Resource" uid="uid://d241mmoi8nss6" path="res://data/ports/TriggerInput.tres" id="4_i1yvh"]
 [ext_resource type="Resource" uid="uid://cwb6snmdhlhdr" path="res://data/ports/TriggerOutput.tres" id="5_rjrbj"]
-[ext_resource type="Script" path="res://resources/NodeDefinition.gd" id="6_hqrpu"]
+[ext_resource type="Script" uid="uid://b8ytbdta5mje1" path="res://resources/NodeDefinition.gd" id="6_hqrpu"]
 
 [resource]
 script = ExtResource("6_hqrpu")
@@ -21,3 +21,4 @@ input_ports = Array[ExtResource("3_67fan")]([ExtResource("4_i1yvh")])
 output_ports = Array[ExtResource("3_67fan")]([ExtResource("5_rjrbj")])
 behavior = ExtResource("1_u6nd2")
 help_msg = "Turns player to face down."
+disabled = false

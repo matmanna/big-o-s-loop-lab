@@ -2,8 +2,8 @@
 
 [ext_resource type="Resource" uid="uid://c04bmja62nkxc" path="res://data/nodes/behaviors/subtract.tres" id="1_x7yiw"]
 [ext_resource type="Texture2D" uid="uid://c2sg1pjroy714" path="res://assets/ui_pack/Grey/icon_square.svg" id="2_3h1aj"]
-[ext_resource type="Script" path="res://resources/PortData.gd" id="2_mne0u"]
-[ext_resource type="Script" path="res://resources/NodeDefinition.gd" id="3_hiepc"]
+[ext_resource type="Script" uid="uid://c5wwhd12cawre" path="res://resources/PortData.gd" id="2_mne0u"]
+[ext_resource type="Script" uid="uid://b8ytbdta5mje1" path="res://resources/NodeDefinition.gd" id="3_hiepc"]
 
 [sub_resource type="Resource" id="Resource_3ge4y"]
 script = ExtResource("2_mne0u")
@@ -40,3 +40,4 @@ input_ports = Array[ExtResource("2_mne0u")]([SubResource("Resource_3ge4y"), SubR
 output_ports = Array[ExtResource("2_mne0u")]([SubResource("Resource_lj4qa")])
 behavior = ExtResource("1_x7yiw")
 help_msg = "Returns the difference value between the two input values (subtrahend and minuend)"
+disabled = false

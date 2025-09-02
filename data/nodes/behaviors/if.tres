@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://cb4m80ybbke0u"]
 
-[ext_resource type="Script" path="res://data/nodes/behaviors/if_behavior.gd" id="1_ofyf8"]
+[ext_resource type="Script" uid="uid://bynf5m6lvrxhl" path="res://data/nodes/behaviors/if_behavior.gd" id="1_ofyf8"]
 
 [resource]
 resource_name = "if"

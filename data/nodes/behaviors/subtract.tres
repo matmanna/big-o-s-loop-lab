@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://c04bmja62nkxc"]
 
-[ext_resource type="Script" path="res://data/nodes/behaviors/subtract_behavior.gd" id="1_oxa4k"]
+[ext_resource type="Script" uid="uid://bq2kson4q0yv" path="res://data/nodes/behaviors/subtract_behavior.gd" id="1_oxa4k"]
 
 [resource]
 script = ExtResource("1_oxa4k")

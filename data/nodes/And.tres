@@ -2,8 +2,8 @@
 
 [ext_resource type="Resource" uid="uid://rol0w50yvamk" path="res://data/nodes/behaviors/and.tres" id="1_6y8ou"]
 [ext_resource type="Texture2D" uid="uid://br7qtfly0t0p8" path="res://assets/ui_pack/Grey/check_square_color_checkmark.svg" id="2_1ws30"]
-[ext_resource type="Script" path="res://resources/PortData.gd" id="3_c2xvv"]
-[ext_resource type="Script" path="res://resources/NodeDefinition.gd" id="4_d3a5a"]
+[ext_resource type="Script" uid="uid://c5wwhd12cawre" path="res://resources/PortData.gd" id="3_c2xvv"]
+[ext_resource type="Script" uid="uid://b8ytbdta5mje1" path="res://resources/NodeDefinition.gd" id="4_d3a5a"]
 
 [sub_resource type="Resource" id="Resource_5fiba"]
 script = ExtResource("3_c2xvv")

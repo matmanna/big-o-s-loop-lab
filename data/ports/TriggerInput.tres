@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="PortData" load_steps=2 format=3 uid="uid://d241mmoi8nss6"]
 
-[ext_resource type="Script" path="res://resources/PortData.gd" id="1_vqb8q"]
+[ext_resource type="Script" uid="uid://c5wwhd12cawre" path="res://resources/PortData.gd" id="1_vqb8q"]
 
 [resource]
 script = ExtResource("1_vqb8q")
 name = "input"
-color = Color(1, 1, 1, 1)
+type = "flow"
+color = "PanelContainer"
 max_connections = 100

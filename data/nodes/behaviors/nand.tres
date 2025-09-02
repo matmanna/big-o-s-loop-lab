@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://dgjpwa81r0v0o"]
 
-[ext_resource type="Script" path="res://data/nodes/behaviors/nand_behavior.gd" id="1_qlo6e"]
+[ext_resource type="Script" uid="uid://88ia2xg1sq6m" path="res://data/nodes/behaviors/nand_behavior.gd" id="1_qlo6e"]
 
 [resource]
 resource_name = "nand"

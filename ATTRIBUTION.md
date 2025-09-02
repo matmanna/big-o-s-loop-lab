@@ -1,11 +1,25 @@
 # Attribution
 
 ## Sourced
-### Asset Type
+### Art / UI
 #### Kenney.NL
 Author: Kenney Vleugels 
 Source: [Domain : kenney.nl](https://kenney.nl)  
 License: [CC0]()
+
+### Audio:
+
+#### Music: Menu Doodle 2 (Loop)
+Modified by: [TinyTakinTeller](https://github.com/TinyTakinTeller)\
+Created by: [StumpyStrust](https://opengameart.org/users/stumpystrust)\
+Source: [opengameart: Menu Doodle 2](https://opengameart.org/content/menu-doodle-2)\
+License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
+
+#### SFX: Kenney UI
+Created by: [Kenney Vleugels](https://kenney.nl)\
+Source: [kenney.nl: UI Audio](https://kenney.nl/assets/ui-audio)\
+License: [CC0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
+
 
 #### Godot Engine Logo
 Author: Andrea Calabró  

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="NodeDefinition" load_steps=7 format=3 uid="uid://cil3d2g6epxns"]
 
-[ext_resource type="Script" path="res://data/nodes/behaviors/not_behavior.gd" id="1_a4yrd"]
+[ext_resource type="Script" uid="uid://stpa7eghclam" path="res://data/nodes/behaviors/not_behavior.gd" id="1_a4yrd"]
 [ext_resource type="Texture2D" uid="uid://br7qtfly0t0p8" path="res://assets/ui_pack/Grey/check_square_color_checkmark.svg" id="2_dvmub"]
-[ext_resource type="Script" path="res://resources/PortData.gd" id="3_4hbue"]
-[ext_resource type="Script" path="res://resources/NodeDefinition.gd" id="4_yeiij"]
+[ext_resource type="Script" uid="uid://c5wwhd12cawre" path="res://resources/PortData.gd" id="3_4hbue"]
+[ext_resource type="Script" uid="uid://b8ytbdta5mje1" path="res://resources/NodeDefinition.gd" id="4_yeiij"]
 
 [sub_resource type="Resource" id="Resource_5fiba"]
 script = ExtResource("3_4hbue")

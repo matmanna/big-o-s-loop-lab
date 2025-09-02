@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://bge4e6eq4lpn" path="res://assets/ui_pack/Grey/slide_hangle.svg" id="1_isxve"]
 [ext_resource type="Resource" uid="uid://cxtlvxwe83vsi" path="res://data/nodes/behaviors/facing_goal.tres" id="1_jug6u"]
-[ext_resource type="Script" path="res://resources/PortData.gd" id="2_ug8aj"]
+[ext_resource type="Script" uid="uid://c5wwhd12cawre" path="res://resources/PortData.gd" id="2_ug8aj"]
 [ext_resource type="Resource" uid="uid://d241mmoi8nss6" path="res://data/ports/TriggerInput.tres" id="3_sufuk"]
 [ext_resource type="Resource" uid="uid://cwb6snmdhlhdr" path="res://data/ports/TriggerOutput.tres" id="4_m73ow"]
 [ext_resource type="Resource" uid="uid://dv0v1a66a1w0u" path="res://data/ports/Value.tres" id="5_3j8up"]
-[ext_resource type="Script" path="res://resources/NodeDefinition.gd" id="6_gyktd"]
+[ext_resource type="Script" uid="uid://b8ytbdta5mje1" path="res://resources/NodeDefinition.gd" id="6_gyktd"]
 
 [resource]
 script = ExtResource("6_gyktd")
@@ -22,3 +22,4 @@ input_ports = Array[ExtResource("2_ug8aj")]([ExtResource("3_sufuk")])
 output_ports = Array[ExtResource("2_ug8aj")]([ExtResource("4_m73ow"), ExtResource("5_3j8up")])
 behavior = ExtResource("1_jug6u")
 help_msg = "When called by input event, returns 0 or 1 depending on whether the player is facing wall."
+disabled = false

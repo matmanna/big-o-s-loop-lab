@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="NodeDefinition" load_steps=5 format=3 uid="uid://bdrpusymvkbp"]
 
 [ext_resource type="Texture2D" uid="uid://bge4e6eq4lpn" path="res://assets/ui_pack/Grey/slide_hangle.svg" id="1_0di03"]
-[ext_resource type="Script" path="res://resources/PortData.gd" id="1_3c86v"]
-[ext_resource type="Script" path="res://resources/NodeDefinition.gd" id="2_0x84m"]
+[ext_resource type="Script" uid="uid://c5wwhd12cawre" path="res://resources/PortData.gd" id="1_3c86v"]
+[ext_resource type="Script" uid="uid://b8ytbdta5mje1" path="res://resources/NodeDefinition.gd" id="2_0x84m"]
 
 [sub_resource type="Resource" id="Resource_abykr"]
 script = ExtResource("1_3c86v")
@@ -16,11 +16,12 @@ script = ExtResource("2_0x84m")
 id = "value"
 display_name = "Value"
 category = "🚩 Data"
-interatorDefault = 0
-interatorAmount = 0
+iteratorDefault = 0
+iteratorAmount = ""
 icon = ExtResource("1_0di03")
 condition = ""
 color = "PanelContainerDanger"
 input_ports = Array[ExtResource("1_3c86v")]([])
 output_ports = Array[ExtResource("1_3c86v")]([SubResource("Resource_abykr")])
 help_msg = "Creates a static value that can be fed to other nodes' data inputs"
+disabled = false

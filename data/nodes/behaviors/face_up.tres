@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://ddknwn4ea62r3"]
 
-[ext_resource type="Script" path="res://data/nodes/behaviors/face_up_behavior.gd" id="1_1ju5i"]
+[ext_resource type="Script" uid="uid://4j5yg7er4uol" path="res://data/nodes/behaviors/face_up_behavior.gd" id="1_1ju5i"]
 
 [resource]
 resource_name = "face_up"

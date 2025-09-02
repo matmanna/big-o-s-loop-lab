@@ -24,7 +24,7 @@ var output_port_connections: Dictionary = {}
 var is_dragging := false
 var drag_offset := Vector2.ZERO
 func _ready():
-	definition = NodeDatabase.get_definition(node_id)
+	definition = get_node('../../../../../../../NodeDatabase').get_definition(node_id)
 	print(node_id)
 	if definition == null:
 		push_error("Invalid node_id: %s" % node_id)

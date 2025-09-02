@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="NodeDefinition" load_steps=6 format=3 uid="uid://cxtfnpk42xu02"]
 
 [ext_resource type="Texture2D" uid="uid://bge4e6eq4lpn" path="res://assets/ui_pack/Grey/slide_hangle.svg" id="1_wtld6"]
-[ext_resource type="Script" path="res://resources/PortData.gd" id="2_pufdd"]
+[ext_resource type="Script" uid="uid://c5wwhd12cawre" path="res://resources/PortData.gd" id="2_pufdd"]
 [ext_resource type="Resource" uid="uid://d241mmoi8nss6" path="res://data/ports/TriggerInput.tres" id="3_ieypc"]
-[ext_resource type="Script" path="res://resources/NodeDefinition.gd" id="4_6qw7c"]
+[ext_resource type="Script" uid="uid://b8ytbdta5mje1" path="res://resources/NodeDefinition.gd" id="4_6qw7c"]
 
 [sub_resource type="Resource" id="Resource_2it0j"]
 script = ExtResource("2_pufdd")

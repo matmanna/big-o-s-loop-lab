@@ -9,7 +9,7 @@ func check_int_or_float(x):
 func evaluate(inputs: Dictionary) -> Dictionary:
 	print('player walk try', inputs["x"])
 	if "x" in inputs && check_int_or_float(inputs["x"]):
-		return {"succeeded": Level.player.walk(inputs["x"])}
+		return {"succeeded": inputs["scene"].get_node("Level").player.walk(inputs["x"])}
 	else:
-		Debug.warn("Invalid walk value (must be float or int)", inputs["trace"])
+		inputs["scene"].get_node("Debug").warn("Invalid walk value (must be float or int)", inputs["trace"])
 		return {"succeeded": 0}

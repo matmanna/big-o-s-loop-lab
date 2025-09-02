@@ -1,9 +1,15 @@
 [gd_scene load_steps=18 format=3 uid="uid://b0ynycfo1mqli"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_0i2sc"]
-[ext_resource type="Script" path="res://addons/maaacks_game_template/examples/scenes/menus/main_menu/main_menu_with_animations.gd" id="2_ncvk7"]
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/examples/scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_tuy3s"]
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/examples/scenes/credits/scrollable_credits.tscn" id="4_4saoe"]
+
+[sub_resource type="Resource" id="Resource_csekl"]
+metadata/__load_path__ = "res://addons/maaacks_game_template/examples/scenes/menus/main_menu/main_menu_with_animations.gd"
+
+[sub_resource type="Resource" id="Resource_ihk85"]
+metadata/__load_path__ = "res://addons/maaacks_game_template/examples/scenes/menus/options_menu/master_options_menu_with_tabs.tscn"
+
+[sub_resource type="Resource" id="Resource_va2ft"]
+metadata/__load_path__ = "res://addons/maaacks_game_template/examples/scenes/credits/scrollable_credits.tscn"
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -312,10 +318,10 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2kqig"]
 _data = {
-"Intro": SubResource("1"),
-"OpenMainMenu": SubResource("6"),
-"OpenSubMenu": SubResource("4"),
-"RESET": SubResource("2")
+&"Intro": SubResource("1"),
+&"OpenMainMenu": SubResource("6"),
+&"OpenSubMenu": SubResource("4"),
+&"RESET": SubResource("2")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="7"]
@@ -350,9 +356,9 @@ transitions = ["Intro", "OpenMainMenu", SubResource("11"), "OpenMainMenu", "Open
 graph_offset = Vector2(-180.277, 49)
 
 [node name="MainMenu" instance=ExtResource("1_0i2sc")]
-script = ExtResource("2_ncvk7")
-options_packed_scene = ExtResource("3_tuy3s")
-credits_packed_scene = ExtResource("4_4saoe")
+script = SubResource("Resource_csekl")
+options_packed_scene = SubResource("Resource_ihk85")
+credits_packed_scene = SubResource("Resource_va2ft")
 level_select_packed_scene = null
 confirm_new_game = true
 game_scene_path = "res://addons/maaacks_game_template/examples/scenes/game_scene/game_ui.tscn"

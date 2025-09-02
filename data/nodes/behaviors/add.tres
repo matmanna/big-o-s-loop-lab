@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://cmeph0xgiy6ym"]
 
-[ext_resource type="Script" path="res://data/nodes/behaviors/add_behavior.gd" id="1_bbb8b"]
+[ext_resource type="Script" uid="uid://dkquwey2ym0t6" path="res://data/nodes/behaviors/add_behavior.gd" id="1_bbb8b"]
 
 [resource]
 resource_name = "add"

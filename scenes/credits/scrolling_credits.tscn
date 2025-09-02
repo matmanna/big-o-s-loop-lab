@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cniiyqbdqjq2s"]
 
 [ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://addons/maaacks_game_template/base/scenes/credits/scrolling_credits.tscn" id="1_bclni"]
-[ext_resource type="Script" path="res://scenes/credits/scrolling_credits.gd" id="2_yaltf"]
+[ext_resource type="Script" uid="uid://bciuvrmgkds3a" path="res://scenes/credits/scrolling_credits.gd" id="2_yaltf"]
 
 [node name="ScrollingCredits" instance=ExtResource("1_bclni")]
 script = ExtResource("2_yaltf")

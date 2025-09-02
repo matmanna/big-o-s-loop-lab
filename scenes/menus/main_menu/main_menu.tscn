@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ctv01se5cpfmr"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_kpvsf"]
-[ext_resource type="Script" path="res://scenes/menus/main_menu/main_menu.gd" id="2_33r74"]
+[ext_resource type="Script" uid="uid://bn3t0nc17hv4q" path="res://scenes/menus/main_menu/main_menu.gd" id="2_33r74"]
 [ext_resource type="PackedScene" uid="uid://ox1v6co4r3xr" path="res://scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_bc2f7"]
 [ext_resource type="PackedScene" uid="uid://bgwsyy23rcgm8" path="res://scenes/credits/scrollable_credits.tscn" id="4_p1jgf"]
 
@@ -17,7 +17,7 @@ credits_packed_scene = ExtResource("4_p1jgf")
 text = "v0.0.1"
 
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
-text = "looplabstudio"
+text = "Big O's Loop Lab [DEMO]"
 
 [node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="1"]
 unique_name_in_owner = true
