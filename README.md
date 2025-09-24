@@ -1,5 +1,8 @@
 # Big O's Loop Lab
 
+[![](https://img.shields.io/badge/Itch-FA5C5C?logo=itchdotio&logoColor=white)](https://matmanna.itch.io/big-o-s-loop-lab)
+[![wakatime](https://wakatime.com/badge/user/7482ea9d-3085-4e9b-95ad-1ca78a14d948/project/f113dd3e-789e-455e-86eb-b28c592bfebc.svg)](https://wakatime.com/badge/user/7482ea9d-3085-4e9b-95ad-1ca78a14d948/project/f113dd3e-789e-455e-86eb-b28c592bfebc)
+
 🔁 A mini visual programming language game that teaches computational thinking through concepts such as algorithmic efficiency, optimization, and recursion. Although aimed at non-technical player, the game (with additional levels) will create interesting and novel puzzles which can challenge someone of any proficiency.
 
 ## Inspiration
