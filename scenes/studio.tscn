@@ -5,16 +5,11 @@
 [ext_resource type="Script" uid="uid://6dua3icehbbd" path="res://scripts/NodeEvaluator.gd" id="3_pnvm7"]
 [ext_resource type="PackedScene" uid="uid://f8xf2b3kim1u" path="res://scenes/logic_node.tscn" id="4_wd1si"]
 [ext_resource type="Script" uid="uid://5rqryxehutrq" path="res://scripts/NodePalette.gd" id="5_dohe0"]
-
-[sub_resource type="FontFile" id="FontFile_butuk"]
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
+[ext_resource type="FontFile" uid="uid://dujlslnle42bw" path="res://assets/NotoSans.ttf" id="6_6gl12"]
 
 [sub_resource type="Theme" id="Theme_6gl12"]
-TabContainer/fonts/font = SubResource("FontFile_butuk")
+default_font = ExtResource("6_6gl12")
+TabContainer/fonts/font = ExtResource("6_6gl12")
 
 [sub_resource type="FontVariation" id="FontVariation_qm25n"]
 variation_embolden = 0.3

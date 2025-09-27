@@ -1,7 +1,6 @@
 extends Node
 
 @export var levels: Dictionary = {}
-@onready var studio_scene = preload("res://scenes/studio.tscn")
 
 func _ready():
 	reset()
@@ -22,9 +21,3 @@ func get_level(name: String) -> LevelData:
 	#print('hi')
 	#print(levels, name)
 	return levels.get(name)
-
-
-func _on_timer_2_timeout() -> void:
-	var studio  = studio_scene.instantiate()
-	get_node('../').add_child(studio)
-	print('shown hsplit')
