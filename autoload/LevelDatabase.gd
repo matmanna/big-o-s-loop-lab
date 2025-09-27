@@ -1,7 +1,7 @@
 extends Node
 
 @export var levels: Dictionary = {}
-@onready var studio_scene = preload("res://studio.tscn")
+@onready var studio_scene = preload("res://scenes/studio.tscn")
 
 func _ready():
 	reset()

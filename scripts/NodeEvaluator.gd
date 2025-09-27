@@ -11,7 +11,7 @@ var next_nodes: Array= []
 var is_running := false
 func _ready():
 	level_options.clear()
-	for lev in get_node('../../../../../../LevelDatabase').levels:
+	for lev in LevelDatabase.levels:
 		print('level1', lev)
 		level_options.add_item(lev)
 	
@@ -38,8 +38,8 @@ func get_port_def_by_name(name, ports):
 		
 func getPassThroughIn(node):
 	var variables = {
-		"facing_goal": get_node('../../../../../../Level').player.facing_goal(),
-		"facing_wall": get_node('../../../../../../Level').player.facing_wall()
+		"facing_goal": Level.player.facing_goal(),
+		"facing_wall": Level.player.facing_wall()
 	}
 	var passThroughIn = {"scene": get_node('../../../../../../') }
 	for inp in node.input_port_connections:
@@ -175,13 +175,13 @@ func start_evaluation():
 	if is_running:
 		return
 	get_node('../../../../../VBoxContainer/VSplitContainer/Debugger/VBoxContainer/DebugTabs').current_tab = 1
-	get_node('../../../../../../Level').reset()
-	get_node('../../../../../../Level').target_reached = false
+	Level.reset()
+	Level.target_reached = false
 	staticValues = {}
 	staticPortValues = {}
-	get_node('../../../../../../Debug').reset()
+	Debug.reset()
 	print("Official: start")
-	get_node('../../../../../../Debug').print("Starting evaluation", null)
+	Debug.print("Starting evaluation", null)
 	print(is_running)
 	tick_count = 0 
 	
@@ -252,11 +252,11 @@ func _process_tick(inside_loop=false, loop_nodes:Array=[]):
 			passThroughIn.iterator = iterator
 			if get_port_def_by_name(node.definition.iteratorAmount, node.definition.input_ports):
 				if !staticValues[node.input_connections[node.definition.iteratorAmount][0].get_instance_id()]:
-					get_node('../../../../../../Debug').error("No iteration count passed", node)
+					Debug.error("No iteration count passed", node)
 					continue
 				passThroughIn[node.definition.iteratorAmount] = staticValues[node.input_connections[node.definition.iteratorAmount][0].get_instance_id()]
 			else:
-				get_node('../../../../../../Debug').error("Invalid iteration count", node)
+				Debug.error("Invalid iteration count", node)
 				
 		var nodeReturn = node.evaluate(passThroughIn)
 		print('nodeReturn', nodeReturn)
@@ -342,23 +342,23 @@ func _process(_delta):
 	var tickcount = puzzle_result.get_node('TickCount/Value')
 	tickcount.text = str(tick_count)
 	var ticklimit = puzzle_result.get_node('TickLimit/Value')
-	ticklimit.text = str(get_node('../../../../../../LevelDatabase').get_level(get_node('../../../../../../Level').current_level_name).tick_limit)
+	ticklimit.text = str(LevelDatabase.get_level(Level.current_level_name).tick_limit)
 	var status =  puzzle_result.get_node('Status/Panel')
-	status.get_node('Value').text = get_node('../../../../../../Debug').get_run_status().text
-	status.theme_type_variation = get_node('../../../../../../Debug').get_run_status().color
+	status.get_node('Value').text = Debug.get_run_status().text
+	status.theme_type_variation = Debug.get_run_status().color
 	var solved =  puzzle_result.get_node('Completion/Panel')
-	solved.get_node('Value').text = "SUCCESS" if get_node('../../../../../../Level').target_reached else ("N/A" if get_node('../../../../../../Level').target_reached == null else "FAILED")
-	solved.theme_type_variation = "PanelContainerSuccess" if get_node('../../../../../../Level').target_reached else ("PanelContainerWarning" if get_node('../../../../../../Level').target_reached == null else "PanelContainerDanger")
+	solved.get_node('Value').text = "SUCCESS" if Level.target_reached else ("N/A" if Level.target_reached == null else "FAILED")
+	solved.theme_type_variation = "PanelContainerSuccess" if Level.target_reached else ("PanelContainerWarning" if Level.target_reached == null else "PanelContainerDanger")
 	var player_position = player_details.get_node('Position/Value') 
-	player_position.text = var_to_str(get_node('../../../../../../Level').player.position)
+	player_position.text = var_to_str(Level.player.position)
 	var player_direction = player_details.get_node('Direction/Value') 
-	player_direction.text = var_to_str(get_node('../../../../../../Level').player.direction)
+	player_direction.text = var_to_str(Level.player.direction)
 	var facing_wall = player_details.get_node('FacingWall/Panel') 
-	facing_wall.get_node('Value').text = "TRUE" if get_node('../../../../../../Level').player.facing_wall()  else "FALSE"
-	facing_wall.theme_type_variation = "PanelContainerSuccess" if get_node('../../../../../../Level').player.facing_wall()  else  "PanelContainerDanger"
+	facing_wall.get_node('Value').text = "TRUE" if Level.player.facing_wall()  else "FALSE"
+	facing_wall.theme_type_variation = "PanelContainerSuccess" if Level.player.facing_wall()  else  "PanelContainerDanger"
 	var facing_goal = player_details.get_node('FacingGoal/Panel') 
-	facing_goal.get_node('Value').text = "TRUE" if get_node('../../../../../../Level').player.facing_goal()  else "FALSE"
-	facing_goal.theme_type_variation = "PanelContainerSuccess" if get_node('../../../../../../Level').player.facing_goal()  else  "PanelContainerDanger"
+	facing_goal.get_node('Value').text = "TRUE" if Level.player.facing_goal()  else "FALSE"
+	facing_goal.theme_type_variation = "PanelContainerSuccess" if Level.player.facing_goal()  else  "PanelContainerDanger"
 	#var level_name = get_node('../../../../../VBoxContainer/HBoxContainer/LevelName')
 	#level_name.text = "Level: " + Level.current_level_name
 	#level_options.selected = LevelDatabase.levels.keys().find(Level.current_level_name)

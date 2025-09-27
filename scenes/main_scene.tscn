@@ -1,13 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bopfakfvpoaot"]
+[gd_scene load_steps=6 format=3 uid="uid://bopfakfvpoaot"]
 
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="1_66tet"]
 [ext_resource type="AudioStream" uid="uid://g7q0kw0852i3" path="res://assets/audio/music/menu_doodle_2_loop/ogg/menu_doodle_2_loop.ogg" id="2_7ycvg"]
+[ext_resource type="PackedScene" uid="uid://d3m5s7q347c8w" path="res://scenes/studio.tscn" id="5_gubc5"]
 [ext_resource type="PackedScene" uid="uid://d3nkma1nimwlk" path="res://scenes/overlaid_menus/pause_menu.tscn" id="6_bsy4b"]
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/scripts/pause_menu_controller.gd" id="6_cihrx"]
-[ext_resource type="Script" uid="uid://byjw4l7w1kvi1" path="res://autoload/NodeDatabase.gd" id="8_wr18j"]
-[ext_resource type="Script" uid="uid://1g6ru6at8vx6" path="res://autoload/LevelDatabase.gd" id="9_671wp"]
-[ext_resource type="Script" uid="uid://c6u4f4psy671c" path="res://autoload/Debug.gd" id="9_qwutr"]
-[ext_resource type="Script" uid="uid://bfwgc2yode74v" path="res://autoload/Level.gd" id="10_671wp"]
 
 [node name="MainScene" type="Control"]
 layout_mode = 3
@@ -30,21 +27,10 @@ pause_menu_packed = ExtResource("6_bsy4b")
 wait_time = 2.0
 one_shot = true
 
-[node name="NodeDatabase" type="Node" parent="."]
-script = ExtResource("8_wr18j")
-
-[node name="LevelDatabase" type="Node" parent="."]
-script = ExtResource("9_671wp")
-
-[node name="Debug" type="Node" parent="."]
-script = ExtResource("9_qwutr")
-
-[node name="Level" type="Node" parent="."]
-script = ExtResource("10_671wp")
-
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
 autostart = true
 
-[connection signal="timeout" from="Timer2" to="LevelDatabase" method="_on_timer_2_timeout"]
+[node name="HSplitContainer" parent="." instance=ExtResource("5_gubc5")]
+layout_mode = 0

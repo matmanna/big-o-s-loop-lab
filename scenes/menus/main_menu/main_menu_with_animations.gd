@@ -66,3 +66,4 @@ func _on_continue_game_button_pressed() -> void:
 
 func _on_level_select_button_pressed() -> void:
 	_open_sub_menu(level_select_scene)
+	

@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=4 uid="uid://c36ged4umsfdj"]
 
-[ext_resource type="Script" uid="uid://cc4t5a7bfesy8" path="res://level.gd" id="1_5u2gg"]
-[ext_resource type="TileSet" uid="uid://cqtgylt1vsjy0" path="res://Tilemap.tres" id="2_46qyf"]
-[ext_resource type="PackedScene" uid="uid://tvxsjav1jes2" path="res://Goal.tscn" id="3_j8f0a"]
-[ext_resource type="PackedScene" uid="uid://dvj0tps7hb0lc" path="res://Player.tscn" id="4_80vod"]
+[ext_resource type="Script" uid="uid://cc4t5a7bfesy8" path="res://scripts/level.gd" id="1_5u2gg"]
+[ext_resource type="TileSet" uid="uid://cqtgylt1vsjy0" path="res://resources/Tilemap.tres" id="2_46qyf"]
+[ext_resource type="PackedScene" uid="uid://tvxsjav1jes2" path="res://scenes/Goal.tscn" id="3_j8f0a"]
+[ext_resource type="PackedScene" uid="uid://dvj0tps7hb0lc" path="res://scenes/Player.tscn" id="4_80vod"]
 [ext_resource type="Script" uid="uid://cyu8cer8okq5n" path="res://data/levels/scenes/Level2_custom.gd" id="5_y38p0"]
 
 [node name="PreviewWorld" type="Node2D"]

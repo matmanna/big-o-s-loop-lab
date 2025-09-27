@@ -25,6 +25,10 @@ AppConfig="*res://addons/maaacks_game_template/base/scenes/autoloads/app_config.
 SceneLoader="*res://addons/maaacks_game_template/base/scenes/autoloads/scene_loader.tscn"
 ProjectMusicController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_music_controller.tscn"
 ProjectUISoundController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
+Level="*res://autoload/Level.gd"
+LevelDatabase="*res://autoload/LevelDatabase.gd"
+Debug="*res://autoload/Debug.gd"
+NodeDatabase="*res://autoload/NodeDatabase.gd"
 
 [dialogue_manager]
 
