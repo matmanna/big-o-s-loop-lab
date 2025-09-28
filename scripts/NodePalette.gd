@@ -20,26 +20,26 @@ func _ready() -> void:
 		grid.columns = 1
 		grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		scroll.name = cat.name
-		for node in get_node('../../../../NodeDatabase').definitions.keys():
-			if get_node('../../../../NodeDatabase').definitions[node].category == cat.name and !get_node('../../../../NodeDatabase').definitions[node].disabled:
+		for node in NodeDatabase.definitions.keys():
+			if NodeDatabase.definitions[node].category == cat.name and !NodeDatabase.definitions[node].disabled:
 				var nodeContainer = HBoxContainer.new()
 				nodeContainer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 				var nodePanel = PanelContainer.new()
 				var title = Label.new()
-				title.text = get_node('../../../../NodeDatabase').definitions[node].display_name
+				title.text = NodeDatabase.definitions[node].display_name
 				var icon = TextureRect.new()
 				icon.custom_minimum_size = Vector2(20, 20)
 				icon.expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
 				icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-				icon.texture = get_node('../../../../NodeDatabase').definitions[node].icon
+				icon.texture = NodeDatabase.definitions[node].icon
 				var hbox = HBoxContainer.new()
 				hbox.add_child(icon)
 				hbox.add_child(title)
 				nodePanel.add_child(hbox)
-				nodePanel.theme_type_variation = get_node('../../../../NodeDatabase').definitions[node].color
-				nodePanel.gui_input.connect(get_node('../../').addNode.bind([get_node('../../../../NodeDatabase').definitions[node].id]))
+				nodePanel.theme_type_variation = NodeDatabase.definitions[node].color
+				nodePanel.gui_input.connect(get_node('../../').addNode.bind([NodeDatabase.definitions[node].id]))
 				var helpLabel = Label.new()
-				helpLabel.text = get_node('../../../../NodeDatabase').definitions[node].help_msg
+				helpLabel.text = NodeDatabase.definitions[node].help_msg
 				helpLabel.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 				helpLabel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 				nodeContainer.add_child(nodePanel)

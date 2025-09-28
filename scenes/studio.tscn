@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3m5s7q347c8w"]
+[gd_scene load_steps=10 format=3 uid="uid://d3m5s7q347c8w"]
 
-[ext_resource type="Script" uid="uid://ci7get6c5hyet" path="res://main_scene.gd" id="1_1nomu"]
-[ext_resource type="Script" uid="uid://cf8pod7cdcyva" path="res://wire.gd" id="2_nyrco"]
-[ext_resource type="Script" uid="uid://6dua3icehbbd" path="res://NodeEvaluator.gd" id="3_pnvm7"]
-[ext_resource type="PackedScene" uid="uid://f8xf2b3kim1u" path="res://logic_node.tscn" id="4_wd1si"]
-[ext_resource type="Script" uid="uid://5rqryxehutrq" path="res://NodePalette.gd" id="5_dohe0"]
+[ext_resource type="Script" uid="uid://ci7get6c5hyet" path="res://scripts/main_scene.gd" id="1_1nomu"]
+[ext_resource type="Script" uid="uid://cf8pod7cdcyva" path="res://scripts/wire.gd" id="2_nyrco"]
+[ext_resource type="Script" uid="uid://6dua3icehbbd" path="res://scripts/NodeEvaluator.gd" id="3_pnvm7"]
+[ext_resource type="PackedScene" uid="uid://f8xf2b3kim1u" path="res://scenes/logic_node.tscn" id="4_wd1si"]
+[ext_resource type="Script" uid="uid://5rqryxehutrq" path="res://scripts/NodePalette.gd" id="5_dohe0"]
+[ext_resource type="FontFile" uid="uid://dujlslnle42bw" path="res://assets/NotoSans.ttf" id="6_6gl12"]
+
+[sub_resource type="Theme" id="Theme_6gl12"]
+default_font = ExtResource("6_6gl12")
+TabContainer/fonts/font = ExtResource("6_6gl12")
 
 [sub_resource type="FontVariation" id="FontVariation_qm25n"]
 variation_embolden = 0.3
@@ -238,6 +243,7 @@ text = "Palette"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme = SubResource("Theme_6gl12")
 tabs_position = 1
 all_tabs_in_front = true
 drag_to_rearrange_enabled = true

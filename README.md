@@ -13,21 +13,21 @@ When I first heard Mark announce the theme, I thought "I've got to be able to do
 
 - Nodes
   - Loops
-    - Repeat N
-    - While
+	- Repeat N
+	- While
   - Math
-    - Arithmetic
-    - Booleans
+	- Arithmetic
+	- Booleans
   - Conditionals
-    - If... then:
+	- If... then:
   - Data
-    - Value 
-    - Console Log
+	- Value 
+	- Console Log
   - Motion & Sensing
-    - Face []
-    - Walk [] 
-    - Facing wall?
-    - Facing Goal? 
+	- Face []
+	- Walk [] 
+	- Facing wall?
+	- Facing Goal? 
 - Interface
   - Zoom-able, pan-able canvas
   - Categorized node palette
@@ -50,4 +50,4 @@ Almost all of the art and code featured in the game was developed by me in Asepr
 Other code and assets were created by:
 - Kenney (UI, game viewport assets)
 - Nathan Hoad (Godot Dialogue Manager)
-- Marek Belski (Godot Game Template)
+- Marek Belski (Godot Game Template)s

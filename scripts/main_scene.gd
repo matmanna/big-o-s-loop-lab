@@ -4,8 +4,8 @@ extends Control
 @onready var preview_line = %PreviewLine
 @onready var node_canvas = %NodeCanvas
 
-@export var wire_scene := preload("res://wire.tscn")
-@export var logic_node_scene := preload("res://logic_node.tscn")
+@export var wire_scene := preload("res://scenes/wire.tscn")
+@export var logic_node_scene := preload("res://scenes/logic_node.tscn")
 
 var is_connecting: bool = false
 var current_dialogue = "start"
@@ -25,11 +25,11 @@ var old_level: int = -1
 var global_fallback = null
 
 func _ready():
-	get_node('../../Level').viewport = viewport
+	Level.viewport = viewport
 	old_level = get_node('../VBoxContainer/HBoxContainer/OptionButton').selected
 
 	set_process_unhandled_input(true)
-	get_node('../../Level').reset()
+	Level.reset()
 	get_node('../../Timer').start()
 
 
