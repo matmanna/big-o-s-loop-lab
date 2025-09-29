@@ -19,9 +19,13 @@ var credits_scene
 var sub_menu
 
 func load_game_scene() -> void:
+	
 	if signal_game_start:
+		
 		SceneLoader.load_scene(game_scene_path, true)
 		game_started.emit()
+		
+		
 	else:
 		SceneLoader.load_scene(game_scene_path)
 

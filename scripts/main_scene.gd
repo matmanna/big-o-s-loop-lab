@@ -213,10 +213,10 @@ func _on_button_pressed() -> void:
 	node_canvas.position = Vector2(-1186.5, -1299) * node_canvas.scale
 
 func _on_reset_level_pressed() -> void:
-	get_node('../../Level').reset()
-	get_node('../../NodeDatabase').reset()
-	get_node('../../LevelDatabase').reset()
-	get_node('../../Debug').run_succeeded = null
+	Level.reset()
+	NodeDatabase.reset()
+	LevelDatabase.reset()
+	Debug.run_succeeded = null
 
 var pending_level_idx = -1
 
@@ -232,13 +232,13 @@ func _on_accept_dialog_confirmed() -> void:
 
 
 func start_dialogue():
-	print(get_node('../../Level').current_level_name)
-	#if (Level.current_level_name == "Starting From Scratch"):
-		#DialogueManager.dialogue_ended.connect(_on_dialogue_manager_dialogue_ended)
-		#DialogueManager.show_example_dialogue_balloon(load("res://dialogue/tutorial.dialogue"), "start")
-	#elif (Level.current_level_name == "First Loops"):
-		#DialogueManager.dialogue_ended.connect(_on_dialogue_manager_dialogue_ended)
-		#DialogueManager.show_example_dialogue_balloon(load("res://dialogue/tutorial.dialogue"), "firstloop")
+	print(Level.current_level_name)
+	if (Level.current_level_name == "Starting From Scratch"):
+		DialogueManager.dialogue_ended.connect(_on_dialogue_manager_dialogue_ended)
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/tutorial.dialogue"), "start")	
+	elif (Level.current_level_name == "First Loops"):
+		DialogueManager.dialogue_ended.connect(_on_dialogue_manager_dialogue_ended)
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/tutorial.dialogue"), "firstloop")
 	
 
 

@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://bkcsjsk2ciff"]
+[gd_scene load_steps=2 format=3 uid="uid://bkcsjsk2ciff"]
+
+[ext_resource type="AudioStream" uid="uid://g7q0kw0852i3" path="res://assets/audio/music/menu_doodle_2_loop/ogg/menu_doodle_2_loop.ogg" id="1_3ryhf"]
 
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer"]
 process_mode = 3
+stream = ExtResource("1_3ryhf")
 autoplay = true
 bus = &"Music"

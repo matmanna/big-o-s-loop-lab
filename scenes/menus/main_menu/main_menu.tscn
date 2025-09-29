@@ -9,12 +9,12 @@
 script = ExtResource("2_33r74")
 level_select_packed_scene = null
 confirm_new_game = true
-game_scene_path = "res://scenes/game_scene/game_ui.tscn"
+game_scene_path = "uid://bd7vjdc2t0nbj"
 options_packed_scene = ExtResource("3_bc2f7")
 credits_packed_scene = ExtResource("4_p1jgf")
 
 [node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0"]
-text = "v0.0.1"
+text = "v0.1.0"
 
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
 text = "Big O's Loop Lab [DEMO]"
