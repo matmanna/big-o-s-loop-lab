@@ -28,11 +28,25 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "[center]
 [font_size=48]Sourced[/font_size]
-[font_size=32]Asset Type[/font_size]
+[font_size=32]Art / UI[/font_size]
 [font_size=24]Kenney.NL[/font_size]
 Author: Kenney Vleugels 
 Source: [url=https://kenney.nl]Domain : kenney.nl[/url]  
 License: [url=]CC0[/url]
+
+[font_size=32]Audio:[/font_size]
+
+[font_size=24]Music: Menu Doodle 2 (Loop)[/font_size]
+Modified by: [url=https://github.com/TinyTakinTeller]TinyTakinTeller[/url]\\
+Created by: [url=https://opengameart.org/users/stumpystrust]StumpyStrust[/url]\\
+Source: [url=https://opengameart.org/content/menu-doodle-2]opengameart: Menu Doodle 2[/url]\\
+License: [url=https://creativecommons.org/publicdomain/zero/1.0/]CC0 (Public Domain)[/url]
+
+[font_size=24]SFX: Kenney UI[/font_size]
+Created by: [url=https://kenney.nl]Kenney Vleugels[/url]\\
+Source: [url=https://kenney.nl/assets/ui-audio]kenney.nl: UI Audio[/url]\\
+License: [url=https://creativecommons.org/publicdomain/zero/1.0/]CC0 (Public Domain)[/url]
+
 
 [font_size=24]Godot Engine Logo[/font_size]
 Author: Andrea Calabró  

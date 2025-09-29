@@ -1,12 +1,12 @@
 extends PanelContainer
 
 var nodeCategories = [
-	{"name": "📡 Events", "icon": "res://assets/ui_pack/Extra/icon_play_dark.svg"},
-	{"name": "🔁 Loops", "icon": "res://assets/ui_pack/Extra/icon_repeat_dark.svg"},
-	{"name": '✅ Conditions', "icon":"res://assets/ui_pack/Grey/icon_outline_checkmark.svg"},
-	{"name": "⭐ Actions", "icon": "res://assets/ui_pack/Grey/star.svg"},
-	{"name": '🚩 Data', "icon":"res://assets/ui_pack/Grey/icon_outline_checkmark.svg"},
-	{"name": '🧮 Math', "icon": ""}
+	{"name": "📡 Events", "icon": "res://assets/ui_pack/Extra/icon_play_dark.svg", "tabIcon": "res://assets/tab_emojis/satellite-antenna.png"},
+	{"name": "🔁 Loops", "icon": "res://assets/ui_pack/Extra/icon_repeat_dark.svg", "tabIcon": "res://assets/tab_emojis/repeat-button.png"},
+	{"name": '✅ Conditions', "icon":"res://assets/ui_pack/Grey/icon_outline_checkmark.svg", "tabIcon": "res://assets/tab_emojis/check-mark-button.png"},
+	{"name": "⭐ Actions", "icon": "res://assets/ui_pack/Grey/star.svg", "tabIcon": "res://assets/tab_emojis/star.png" },
+	{"name": '🚩 Data', "icon":"res://assets/ui_pack/Grey/icon_outline_checkmark.svg", "tabIcon": "res://assets/tab_emojis/triangular-flag.png"},
+	{"name": '🧮 Math', "icon": "", "tabIcon":"res://assets/tab_emojis/abacus.png" }
 ]
 #@onready var categories = $VBoxContainer/Categories
 
@@ -19,7 +19,7 @@ func _ready() -> void:
 		var grid = GridContainer.new()
 		grid.columns = 1
 		grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		scroll.name = cat.name
+		scroll.name = cat.name.split(" ")[1]
 		for node in NodeDatabase.definitions.keys():
 			if NodeDatabase.definitions[node].category == cat.name and !NodeDatabase.definitions[node].disabled:
 				var nodeContainer = HBoxContainer.new()
@@ -47,6 +47,10 @@ func _ready() -> void:
 				grid.add_child(nodeContainer)
 		scroll.add_child(grid)
 		%PaletteTabs.add_child(scroll)
+		var image = Image.load_from_file(cat.tabIcon)
+		var texture = ImageTexture.create_from_image(image)
+		%PaletteTabs.set_tab_icon(len(%PaletteTabs.get_children())-1, texture)
+		%PaletteTabs.set_tab_icon_max_width(len(%PaletteTabs.get_children())-1, 18)
 		#$VBoxContainer/TabContainer.set_tab_icon(num, load( cat.icon))
 		#num +=1
 	%PaletteTabs.current_tab = 0

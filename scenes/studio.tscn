@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://d3m5s7q347c8w"]
 
 [ext_resource type="Script" uid="uid://ci7get6c5hyet" path="res://scripts/main_scene.gd" id="1_1nomu"]
-[ext_resource type="Script" uid="uid://cf8pod7cdcyva" path="res://scripts/wire.gd" id="2_nyrco"]
-[ext_resource type="Script" uid="uid://6dua3icehbbd" path="res://scripts/NodeEvaluator.gd" id="3_pnvm7"]
+[ext_resource type="Script" path="res://scripts/wire.gd" id="2_nyrco"]
+[ext_resource type="Script" path="res://scripts/NodeEvaluator.gd" id="3_pnvm7"]
 [ext_resource type="PackedScene" uid="uid://f8xf2b3kim1u" path="res://scenes/logic_node.tscn" id="4_wd1si"]
 [ext_resource type="Script" uid="uid://5rqryxehutrq" path="res://scripts/NodePalette.gd" id="5_dohe0"]
 [ext_resource type="FontFile" uid="uid://dujlslnle42bw" path="res://assets/NotoSans.ttf" id="6_6gl12"]
@@ -147,18 +147,25 @@ script = ExtResource("3_pnvm7")
 node_canvas = NodePath(".")
 
 [node name="LogicNode2" parent="Studio/VSplitContainer/CanvasPanel/Canvas/NodeCanvas" instance=ExtResource("4_wd1si")]
-offset_left = 1348.5
-offset_top = 1424.0
-offset_right = 1548.5
-offset_bottom = 1496.0
+offset_left = 1234.5
+offset_top = 1384.0
+offset_right = 1434.5
+offset_bottom = 1456.0
 node_id = "on-start"
 
 [node name="LogicNode" parent="Studio/VSplitContainer/CanvasPanel/Canvas/NodeCanvas" instance=ExtResource("4_wd1si")]
-offset_left = 1454.5
-offset_top = 1530.0
-offset_right = 1654.5
-offset_bottom = 1602.0
+offset_left = 1376.5
+offset_top = 1512.0
+offset_right = 1576.5
+offset_bottom = 1584.0
 node_id = "walk"
+
+[node name="LogicNode3" parent="Studio/VSplitContainer/CanvasPanel/Canvas/NodeCanvas" instance=ExtResource("4_wd1si")]
+offset_left = 1526.5
+offset_top = 1384.0
+offset_right = 1726.5
+offset_bottom = 1456.0
+node_id = "value"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Studio/VSplitContainer/CanvasPanel"]
 z_index = 1000
@@ -490,6 +497,11 @@ layout_mode = 2
 layout_mode = 2
 text = "N/A"
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
 auto_translate_mode = 1
 dialog_text = "Confirm Level Switch? Your current code and puzzle status will be lost."
@@ -511,5 +523,6 @@ dialog_text = "Confirm Level Switch? Your current code and puzzle status will be
 [connection signal="item_selected" from="VBoxContainer/HBoxContainer/OptionButton" to="Studio" method="_on_level_option_button_item_selected"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ResetLevel" to="Studio" method="_on_reset_level_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/TutorialButton" to="Studio" method="_on_tutorial_button_pressed"]
+[connection signal="timeout" from="Timer" to="Studio" method="_on_timer_timeout"]
 [connection signal="canceled" from="AcceptDialog" to="Studio" method="_on_accept_dialog_canceled"]
 [connection signal="confirmed" from="AcceptDialog" to="Studio" method="_on_accept_dialog_confirmed"]

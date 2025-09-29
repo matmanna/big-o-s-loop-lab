@@ -12,23 +12,23 @@ config_version=5
 
 config/name="Big O's Loop Lab [DEMO]"
 config/description="A DEMO puzzle game about computational thinking."
-config/version="0.0.1"
+config/version="0.1.1"
 run/main_scene="uid://dbx4m5nfu06vh"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://bjk7yvai57os0"
 config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Debug="*res://autoload/Debug.gd"
+Level="*res://autoload/Level.gd"
+LevelDatabase="*res://autoload/LevelDatabase.gd"
+NodeDatabase="*res://autoload/NodeDatabase.gd"
 AppConfig="*res://addons/maaacks_game_template/base/scenes/autoloads/app_config.tscn"
 SceneLoader="*res://addons/maaacks_game_template/base/scenes/autoloads/scene_loader.tscn"
 ProjectMusicController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_music_controller.tscn"
 ProjectUISoundController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
-Level="*res://autoload/Level.gd"
-LevelDatabase="*res://autoload/LevelDatabase.gd"
-Debug="*res://autoload/Debug.gd"
-NodeDatabase="*res://autoload/NodeDatabase.gd"
 
 [dialogue_manager]
 
