@@ -227,7 +227,7 @@ func _on_level_option_button_item_selected(index: int) -> void:
 func _on_accept_dialog_confirmed() -> void:
 	print('switching level', pending_level_idx)
 	if pending_level_idx > -1:
-		get_node('../../Level').load_level(get_node('../../LevelDatabase').levels.keys()[pending_level_idx])
+		Level.load_level(LevelDatabase.levels.keys()[pending_level_idx])
 		pending_level_idx = -1
 
 

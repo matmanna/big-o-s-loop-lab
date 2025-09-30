@@ -8,5 +8,5 @@ func evaluate(inputs: Dictionary) -> Dictionary:
 		else:
 			return {"": 0}
 	else:
-		inputs["scene"].get_node("Debug").error("Something's wrong with the facing_goal variable")
+		Debug.error("Something's wrong with the facing_goal variable")
 		return {"": 0}

@@ -9,8 +9,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	Level.target_reached = player.position == $Goal.position
 	pass
 
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
-	get_node('../../../../../../../../Level').target_reached = true
+	Level.target_reached = true

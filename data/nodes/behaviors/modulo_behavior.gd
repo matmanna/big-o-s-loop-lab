@@ -10,5 +10,5 @@ func evaluate(inputs: Dictionary) -> Dictionary:
 	if "dividend" in inputs && "divisor" in inputs && check_dividable(inputs["dividend"], inputs["divisor"]):
 		return {"power": inputs["dividend"] % inputs["divisor"]}
 	else:
-		inputs["scene"].get_node("Debug").error("Invalid dividend or divisor", inputs["trace"])
+		Debug.error("Invalid dividend or divisor", inputs["trace"])
 		return {}

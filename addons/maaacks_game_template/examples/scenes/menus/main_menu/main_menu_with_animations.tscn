@@ -371,7 +371,7 @@ parameters/conditions/intro_done = false
 modulate = Color(1, 1, 1, 0)
 
 [node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0"]
-text = "v0.1.0"
+text = "v0.1.2"
 
 [node name="TitleContainer" parent="MenuContainer/TitleMargin" index="0"]
 modulate = Color(1, 1, 1, 0)

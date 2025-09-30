@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Big O's Loop Lab [DEMO]"
 config/description="A DEMO puzzle game about computational thinking."
-config/version="0.1.2"
+config/version="0.1.3"
 run/main_scene="uid://dbx4m5nfu06vh"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://bjk7yvai57os0"

@@ -14,7 +14,7 @@ options_packed_scene = ExtResource("3_bc2f7")
 credits_packed_scene = ExtResource("4_p1jgf")
 
 [node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0"]
-text = "v0.1.0"
+text = "v0.1.2"
 
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
 text = "Big O's Loop Lab [DEMO]"
